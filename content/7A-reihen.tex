@@ -1,0 +1,172 @@
+\section{Reihen}
+
+
+\begin{mydef}
+	Sei $(a_k)_k \in \nat \times \compl$. Man nennt $a_k$ das ``$k$-te Glied" oder den ``$k$-ten Summanden" der ``(unendlichen) Reihe" \begin{equation}
+		\sum_{k=1}^{\infty} a_k.
+	\end{equation}
+	
+	Man nennt 
+	\begin{equation}
+		s_n=\sum_{k=1}^{n} a_k 
+	\end{equation}
+	
+	die ``$n$-te Partialsumme" der obigen Reihe. Wir nennen die Reihe ``konvergent", falls der Grenzwert
+	\begin{equation}
+		\sum_{k=1}^\infty a_k :\equiv \lim_{n \to \infty} \sum_{k=1}^{n} a_k = \lim_{n \to \infty} s_n \in \compl
+	\end{equation}
+	
+	existiert. Wir nennen dies den ``Wert der Reihe". Ansonsten nennen wir die Reihe ``divergent".
+\end{mydef}
+
+\begin{thm}
+	Falls $\sum_{k=1}^{\infty} a_k$ konvergiert, dann ist $(a_n)_n$ eine Nullfolge.
+\end{thm}
+
+\setcounter{thm}{5}
+\begin{thm}[Linearität]
+	Seinen $\sum_{k=1}^{\infty} a_k$ und $\sum_{k=1}^{\infty} b_k$ konvergente Reihen und $\alpha \in \compl$. Dann sind die Reihen  $\sum_{k=1}^{\infty} (a_k + b_k)$ und $\sum_{k=1}^{\infty} \alpha a_k$ konvergent und es gilt
+	\begin{equation}
+		\sum_{k=1}^{\infty} (a_k + b_k) = \sum_{k=1}^{\infty} a_k + \sum_{k=1}^{\infty} b_k \und \sum_{k=1}^{\infty} (\alpha a_k) = \alpha \sum_{k=1}^{\infty} a_k
+	\end{equation}
+\end{thm}
+
+\setcounter{thm}{7}
+\begin{thm}[Indexverschiebung für Reihen]
+	Sei $\sumkinfty a_k$ eine Reihe. Es gilt $\forall M \in \nat$:
+	
+	Die Reihe $\sum_{k=M}^{\infty} a_k = \sumlinfty a_{l+M-1}$ ist konvergent $\iff$ die Reihe $\sumkinfty a_k$ ist konvergent.
+	
+	In diesem Fall gilt
+	\begin{equation}
+		\sumkinfty a_k = \sum_{k=1}^{M-1} a_k + \sum_{k=M}^{\infty} a_k.
+	\end{equation}
+\end{thm}
+
+\begin{thm}[Zusammenfassen von benachbarten Gliedern]
+	Sei $\sumninfty a_n$ eine konvergente Reihe und $(n_k)_k \in \nat \times \nat$ eine streng monoton wachsende Folge (natürlicher Zahlen).
+	Sei 
+	\begin{equation}
+		\begin{aligned}
+			A_1 &: \equiv a_1 + \cdots + a_{n_1} \\
+			A_k &: \equiv a_{n_{k-1}} + \cdots + a_{n_k} \fuer k \geq 2
+		\end{aligned}
+	\end{equation}
+	Dann gilt
+	\begin{equation}
+		\sumkinfty A_k = \sumkinfty a_n
+	\end{equation}
+\end{thm}
+
+\subsection{Reihen mit nicht-negativen Gliedern}
+
+\begin{thm}[Monotone Partialsummen]
+	Für eine Reihe $\sumkinfty a_k$ mit $a_k \geq 0$ bilden die Partialsummen $s_n=\sumkn a_k$ eine monoton wachsende Folge. Falls diese Folge $(s_n)_n$ beschränkt ist, dann Konvergiert die Reihe. Ansonsten gilt
+	\begin{equation}
+		\sumkinfty a_k = \limninfty s_n = \infty.
+	\end{equation}	
+\end{thm}
+
+\begin{thm}[Vergleichssatz]
+	
+	Seien $\sumkinfty a_k$ und $\sumkinfty b_k$ zwei Reihen mit der Eigenschaft 
+	\begin{equation}
+		0\leq a_k \leq b_k.
+	\end{equation}
+	
+	Dann gilt 
+	\begin{equation}
+	 	\underbrace{\sumkinfty a_k}_{\text{Minorante von $\sumkinfty b_k$}}  \leq \underbrace{\sumkinfty b_k}_{\text{Majorante von $\sumkinfty a_k$}} 
+	\end{equation} 
+	
+	und insbesondere gelten die Implikationen
+	\begin{equation}
+		\begin{aligned}
+			&\sumkinfty b_k
+			&\text{konvergent} 
+			&\implies 
+			&\sumkinfty a_k 
+			&\mytext{konvergent} 
+			&\text{(Majorantenkriterium)} \\
+			&\sumkinfty a_k
+			&\text{divergent} 
+			&\implies 
+			&\sumkinfty b_k 
+			&\mytext{divergent} 
+			&\text{(Minorantenkriterium)}
+		\end{aligned}
+	\end{equation}
+	
+	Diese beiden Implikationen treffen auch dann zu, wenn $0\leq a_n \leq b_n$ nur für alle hinreichend grossen $n \in \nat$ gilt.
+\end{thm}
+
+\setcounter{thm}{15}
+\begin{thm}[Verdichtung]
+	\label{thm:verdichtung}
+	Eine Reihe $\sumkinfty a_k$ mit $a_1 \geq a_2 \cdots \geq 0$ (nicht-negativen, monoton abnehmenden Gliedern) ist konvergent $\iff$ $\sumkinfty 2^k a_{2^k}$ ist konvergent.
+\end{thm}
+\begin{proof}
+	Es gilt $\forall n\in \nat$
+	\begin{equation}
+		\begin{aligned}
+			a_2    &\leq a_2 \leq a_1 \\
+			2a_4   &\leq a_3+a_4 \leq 2a_2 \\
+			2^2a_8 &\leq a_5+a_6+a_7+a_8 \leq 2^2a_4 \\
+			       &\quad \vdots \\
+			2^{n} a_{2^{n+1}} & \leq a_{(2^n)+1} + \ldots + a_{2^{n+1}} \leq 2^n a_{2^n}
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\implies \sumknplone 2^{k-1} a_{2^l} \leq \sum_{l=2}^{2^{n+1}} a_l \leq \sumkzeroton 2^{k}a_{2^k}
+	\end{equation}
+	
+	Der Rest folgt durch \autoref{thm:verdichtung} und durch den Grenzübergang $n \to \infty$.
+\end{proof}
+
+
+\subsection{Bedingte Konvergenz}
+\begin{mydef}
+	Eine Reihe $\sumninfty a_n$ mit $a_n \in \compl$ ``konvergiert absolut", falls die Reihe $\sumkinfty |a_n|$ konvergiert. \\
+Die Reihe $\sumninfty a_n$ ist ``bedingt konvergent", falls sie konvergiert, aber nicht absolut konvergiert.
+\end{mydef}
+
+\setcounter{thm}{20}
+\begin{thm}[Riemannscher Umordnungssatz]
+	Sei $\sumninfty a_n$ eine bedingt konvergente Reihe mit reelen Gliedern. Dann gibt es zu jedem $A\in \real$ eine bijektive Funktion (eine Umordnung) $\varphi: \nat \to \nat$, so dass die Reihe $\sumninfty a_{\varphi(n)}$ bedingt konvergiert und $\sumninfty a_{\varphi(n)} = A$ ist. Weiters gibt es eine Umordnung der Reihe, die divergiert.	
+\end{thm}
+
+
+\subsection{Alternierende Reihen}
+
+Für eine Folge $(a_n)_n$ positiver Zahlen bezeichnen wir die Reihe $\sumkinfty (-1)^{n+1}a_n$ als `alternierende Reihe".
+
+\begin{thm}[Leibniz-Kriterium]
+	Gegeben sei eine monoton fallende Folge $(a_n)_n$ positiver (reeler?) Zahlen, die gegen Null konvergiert. Dann konvergiert die zugehörige alternierende Reihe $\sumkinfty (-1)^{k+1} a_k$ und es gilt, dass
+	\begin{equation}
+		\label{eq: fehlerabschaetzung}
+		\left | \sumkonetilll (-1)^{k+1} a_k - \sumkinfty (-1)^{k+1} a_k \right | \leq a_{l+1}. \fueralle l\in \nat
+	\end{equation}
+	
+	Weiters ist
+	\begin{equation}
+		\sum_{k=1}^{2n} (-1)^{k+1} a_k \leq \sum_{k=1}^{\infty} (-1)^{k+1} a_k \leq \sum_{k=1}^{2n-1} (-1)^{k+1}a_k
+	\end{equation}
+	
+	Abschätzungen des Typs (\autoref{eq: fehlerabschaetzung}) werden meist auch Fehlerabschätzungen oder Fehlerschranken bezeichnet. (Intuitiv: Approximation durch Summe bis zu einem gewissen Glied anstatt der Wert der Reihe)
+\end{thm}
+
+
+\subsection{Das Cauchy-Kriterium}
+
+\begin{thm}[Cauchy-Kriterium] Die Reihe $\sumkinfty a_k$ konvergiert $\iff$ $\forall \epsilon > 0 \; \exists N \in \nat$, so dass
+	\begin{equation}
+		\left | \sum_{k=m}^{n} a_k \right | < \epsilon \fuer n \geq m \geq N
+	\end{equation}
+\end{thm}
+\begin{proof}
+	Dies folgt aus dem Cauchy-Kriterium für Folgen angewendet auf die Folge der Partialsummen $s_n=\sumkinfty a_k$, da 
+	\begin{equation}
+				s_n - s_{m-1} = \sum_{k=1}^n a_k - \sum_{k=1}^{m-1} a_k = \sum_{k=m}^n a_k \fuer n \geq m
+	\end{equation}
+\end{proof}
+

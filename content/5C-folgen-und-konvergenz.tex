@@ -1,0 +1,92 @@
+\section{Folgen und Konvergenz}
+
+% Definition 5.20
+\setcounter{thm}{19}
+\begin{mydef}[Folge]
+	Eine ``Folge" in $X$ ist eine Abbildung $a: \nat \to X$. Man schreibt
+	\begin{equation}
+		a_n :\equiv a(n) \mytext{als das $n$-te ``Folgenglied",}
+	\end{equation}
+	
+	und
+  \begin{equation}
+  	a: \nat \to X :\equiv (a_1, a_2, \ldots) \equiv (a_n)_{n\in\nat} \equiv(a_n)_{n=1}^{\infty} \equiv (a_n)_n
+  \end{equation}
+  
+	Die Menge der Folgen wird auch als $X^\nat$ bezeichnet.
+	
+	Eine Folge heisst ``konstant", falls $\forall m,n \in \nat: a_n=a_m$ und ``schliesslich konstant", falls 
+	\begin{equation}
+		\exists M\in \nat: \; \forall m,n \in \nat \; : m,n \geq \nat \implies a_n = a_m
+	\end{equation}
+\end{mydef}
+
+% Definition 5.21
+\begin{mydef}[Konvergenz]
+	Sei $(X,d)$ ein metrischer Raum und $(a_n)_n$ eine Folge in $X$.
+	
+	$(a_n)_n$ ``konvergiert" oder ``strebt" gegen einen Punkt $A\in X$, falls 
+	\begin{equation}
+		\forall \epsilon > 0 \; \exists N \in \nat \; \forall n \geq N: (a_n, A) < \epsilon.
+	\end{equation}
+	
+	In diesem Fall nenne wir den Punkt $A$ den ``Grenzwert" der Folge und schreiben auch
+	\begin{equation}
+		\limninfty a_n = A
+	\end{equation}
+	
+	Weiter ist eine Folge in $X$ ``konvergent", falls sie einen Grenzwert besitzt, und ``divegent", falls nicht.
+\end{mydef}
+
+
+\begin{thm}
+	Sei $(X,d)$ ein metrischer Raum. Jede konvergente Folge in $X$ besitzt einen eindeutigen Grenzwert.
+\end{thm}
+\begin{proof} Beweis durch Widerspruch. Seien $A_1, A_2$ zwei verschiedene Grenzwerte einer konvergenten Folge $(a_n)_n$. Sei $\epsilon :\equiv \frac{d(A_1, A_2)}{2} > 0$. Aus der Annahme folgt
+	\begin{equation}
+		\begin{aligned}
+			\exists N_1 \in \nat: d(a_n, A_1) &< \epsilon \quad \forall n \geq N_1 \und \\
+			\exists N_2 \in \nat: d(a_n, A_2) &< \epsilon \quad \forall n \geq N_2.
+		\end{aligned}
+	\end{equation}
+	
+	Daraus folgt
+	\begin{equation}
+		 N :\equiv \max \{ N_1, N_2 \} : d(a_n, A_1) < \epsilon \und d(a_n, A_2) < \epsilon \quad \forall n \geq N.
+	\end{equation}
+	
+	Nach der Dreiecksungleichung gilt
+	\begin{equation}
+		d(A_1, A_2) \leq d(A_1, a_N) + d(a_N, A_2) \; \boxed{<} \;  2\epsilon = d(A_1, A_2)
+	\end{equation}
+	
+	Was ein Widerspruch darstellt. Es kann nicht zwei Grenzwerte geben.
+\end{proof}
+
+\emph{Erinnerung:} Für einen metrischen Raum $(X,d)$ und 
+$\epsilon > 0$ ist der ``$\epsilon$-Ball" oder auch die ``$\epsilon$-Umgebung" um $x_0\in X$ durch
+\begin{equation}
+	B_{\epsilon} (x_0) :\equiv \{ x\in X \mid d(x, x_0) <\epsilon \}
+\end{equation}
+
+gegeben. Eine allgemeine Umgebung wird wie folgt definiert.
+
+% Definition 5.24
+\setcounter{thm}{23}
+\begin{mydef}[Umgebung]
+	Eine ``Umgebung" $U$ von $x_0 \in X$ ist Teilmenge $U \subseteq X$, die eine $\epsilon$-Umgebung von $x_0$ für ein $\epsilon > 0$ enthält.
+\end{mydef}
+
+% Lemma 5.25
+\begin{thm}[Indexverschiebung]
+	$\forall l \in \nat_0$: $(a_n)_n$ ist konvergent $\iff$ $(a_{n+l})_n$ ist konvergent.
+	
+	In diesem Fall gilt
+	\begin{equation}
+		\limninfty a_n = \lim_{n \to \infty} a_{n+l}.
+	\end{equation}
+	
+	Dies gilt für jede Folge $(a_n)_n$ und $(a_{n+l})_n$ in einem metrischen Raum.
+\end{thm}
+
+

@@ -1,0 +1,47 @@
+\section{Potenzreihen}
+
+% Definition 7.54
+\setcounter{thm}{53}
+\begin{mydef}[Potenzreihe]
+	$\forall n \in \nat_0$ sei $a_n \in \compl$. Dann ist der formale Ausdruck
+	\begin{equation}
+		\sumninfty a_n z^n
+	\end{equation}
+	
+	eine ``Potenzreihe" in der Variable $z$
+\end{mydef}
+
+\subsection{Konvergenzradius}
+
+\begin{mydef}[Konvergenzradius]
+	Der entsprechende ``Konvergenzradius" wird durch
+	\begin{equation}
+		R=\frac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}
+	\end{equation}
+	
+	definiert. Wir setzen $\frac{1}{+\infty} = 0$ und hier $\frac{1}{0} = +\infty$
+\end{mydef}
+
+\begin{thm}[Über den Konvergenzradius]
+	Sei $\sumninfty a_n z^n$ eine Potenzreihe und $R$ ihr Konvergenzradius. Dann konvergiert die Reihe für alle $z \in \compl$ mit $|z| < R$ absolut und divergiert für alle $z \in \compl$ mit $|z| > R$. \\
+	Weiters konvergiert die Funktionenfolge $\sum_{j=0}^{n} a_j z^j$ gleichmässig gegen $\sumninfty a_n z^n$ auf jeder Kreisscheibe der Form $B_S(0) = \{ z \in \compl \mid |z| < S\}$ für jedes $S\in (0, R)$. Insbesondere definiert die Potenzreihe die stetige Abbildung 
+	\begin{equation}
+		z \in B_r (0) \mapsto \sum_{n=0}^{\infty} a_n z^n \in \compl
+	\end{equation}
+	
+\end{thm}
+
+\subsection{Addition und Multiplikation}
+
+\begin{thm}[Summe und Produkte]
+	Seien $\sumninfty a_n z^n$ und $\sumninfty b_n z^n$ zwei Potenzreihen mit Konvergenzradius $R_a$ respektive $R_b$. Dann gilt $\forall z \in \compl$ mit $|z| < \min \{R_a, R_b \}$
+	\begin{equation}
+		\begin{aligned}
+			\sumninfty a_n z^n  \sumninfty b_n z^n  &= \sumninfty (a_n + b_n) z^n \\
+			\left( \sumninfty a_n z^n \right) \left( \sumninfty b_n z^n \right)
+			 & = \sumninfty \left( \sum_{k=0}^{n} a_{n-k} b_k z^n \right) 
+		\end{aligned}
+	\end{equation}
+	
+	Insbesondere ist der Konvergenzradius der Potenzreihen auf der recheten Seite mindestens $\min \{ R_a, R_b \}$
+\end{thm}

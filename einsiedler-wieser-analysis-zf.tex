@@ -1,0 +1,145 @@
+\documentclass[11pt]{report}
+
+%\usepackage[fleqn]{amsmath}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[skip = 2pt, parfill]{parskip}
+\usepackage{blkarray}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage[explicit]{titlesec} %"big, medium, small, tiny".
+\usepackage{xfakebold}
+\usepackage{amsthm}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+%\usepackage{kpfonts}
+\usepackage{lipsum}
+\usepackage{xfrac}
+\usepackage{breqn}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{xr-hyper}
+%\usepackage[fontsize=15pt]{scrextend}
+\usepackage{relsize}
+\usepackage{enumitem}
+\setlist{nosep}
+
+
+\definecolor{darkteal}{RGB}{0, 41, 59}
+
+%o\everymath{\color{darkteal}}
+%\everydisplay{\color{darkteal}}
+%\everydisplay{\color{Melon}}
+
+%\hypersetup{
+%	colorlinks,
+%	linkcolor={red!50!black},
+%	citecolor={blue!50!black},
+%	urlcolor={blue!80!black}
+%}
+
+\hypersetup{
+	colorlinks,
+	linkcolor={black},
+	citecolor={black},
+	urlcolor={black}
+}
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=17mm,
+	right=17mm,
+	top=15mm,
+}
+
+%\setcounter{secnumdepth}{0}
+%\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\}
+
+
+%\titlespacing{\chapter}{0pt}{6pt}{3pt}
+%\titlespacing{\section}{0pt}{10pt}{3pt}
+%\titlespacing{\subsection}{0pt}{13pt}{3pt}
+%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+
+\titlespacing{\chapter}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{25pt}{3pt}
+\titlespacing{\subsection}{0pt}{25pt}{3pt}
+\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+
+
+%\renewcommand*{\thechapter}{Chapter \arabic{chapter}}
+\renewcommand*{\thechapter}{\arabic{chapter}}
+%\renewcommand*{\thesection}{\Roman{section}}
+\renewcommand*{\thesection}{\arabic{chapter}\Alph{section}}
+\renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
+
+%\titleformat*{\chapter}{\ttfamily\fontseries{b}\selectfont\large}
+\titleformat{\chapter}[block]
+{\bfseries\relscale{1.3}\scshape\selectfont}{\thechapter { } { } #1}{0.5em}{\selectfont\large}
+
+
+\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+
+
+% Old titleformat:
+%\titleformat*{\section}{\fontseries{b}\selectfont\large}
+%\titleformat*{\subsection}{\fontseries{b}\selectfont\normalsize}
+%\titleformat*{\subsubsection}{\fontseries{b}\selectfont\normalsize}
+%\titleformat*{\subsubsection}{\fontseries{b}\selectfont\normalsize}
+
+\titleformat{\section}{\bfseries\relscale{1.2}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
+
+\titleformat{\subsection}{\bfseries\relscale{1.1}\scshape\itshape\selectfont}{}{0em}{#1\  { } (\thesubsection)} %large
+
+\titleformat{\subsubsection}{\relscale{1}\selectfont}{}{0em}{#1\  \thesection}
+
+
+%\titlespacing{\chapter}{0pt}{\parskip}{-\parskip}
+%\titlespacing{\section}{0pt}{\parskip}{-\parskip}
+%\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+%\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+
+%\usepackage[skip=2pt plus1pt, indent=0pt]{parskip}
+% \usepackage[skip=10pt plus1pt, indent=40pt]{parskip}
+%\usepackage[small]{titlesec} % "big, medium, small, tiny".
+
+%\setlength{\abovedisplayskip}{0pt}
+%\setlength{\belowdisplayskip}{0pt}
+
+\begin{document}
+
+	  
+  \linespread{1.2}
+
+  \input{def}
+
+  \chapter{Einführung}
+
+
+  \chapter{Die reellen Zahlen}
+	.
+	
+	\chapter{Funktionen und die reellen Zahlen}
+	
+  \chapter{Das Riemann-Integral}
+	.
+	
+  \chapter{Metrische Räume, Folgen und Stetigkeit}
+	\input{content/5A-normierte-vektorraeume}
+	\input{content/5B-metrische-raeume}
+	\input{content/5C-folgen-und-konvergenz}
+	
+  \chapter{Grenzwerte reeller Folgen und Funktionen}
+ 	.
+ 	
+	
+  \chapter{Reihen, Funktionsfolgen und Potenzreihen}
+  \input{content/7A-reihen}
+  \input{content/7B-absolute-konvergenz}
+	\input{content/7C-konvergenz-von-funktionsfolgen}
+	\input{content/7D-potenzreihen}
+
+\end{document}

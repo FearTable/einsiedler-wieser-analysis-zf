@@ -1,0 +1,95 @@
+\section{Absolute Konvergenz}
+
+% Proposition 7.28
+\setcounter{thm}{27}
+\begin{thm}[Absolute Konvergenz]
+	\label{thm:absolute-konvergenz}
+	Eine absolut konvergente Reihe $\sumninfty a_n$ ist auch konvergent und es gilt die verallgemeinerte Dreiecksungleichung
+	\begin{equation}
+		\left | \sumninfty a_n \right | = \sumninfty | a_n |
+	\end{equation}
+\end{thm}
+
+\subsection{Hinreichende Kriterien für absolute Konvergenz}
+
+\begin{thm}[Majorantenkriterium von Weierstrass]
+	Sei $(a_n)_n \in \nat \times \compl$ und $(b_n)_n \in \nat \times \real$ mit $|a_n| < b_n$ für alle hinreichend grossen $n \in \nat$. Falls $\sumkinfty b_m$ konvergiert, dann ist ist $\sumkinfty a_k$ absolut konvergent.
+\end{thm}
+
+\begin{thm}[Cauchy-Wurzelkriterium]
+	
+	Sei $(a_n)_n$ eine Folge komplexer Zahlen und
+	\begin{equation}
+		\alpha = \limsup_{n \to \infty} \sqrt[n]{|a_n|} \in \real \cup \infty
+	\end{equation}
+	
+	Dann gilt
+	\begin{equation}
+		\begin{aligned}
+    	\alpha < 1 &\implies \sumkinfty a_n \mytext{ist absolut konvergent} \\
+    	\alpha > 1 &\implies \sumkinfty a_n \mytext{ist divergent und $(a_n)_n$ ist keine Nullfolge}
+		\end{aligned}
+	\end{equation}
+\end{thm}
+
+\begin{thm}[D'Alemberts Quotientenkriterium]
+Sei $(a_n)_n \in \nat \times \compl$ mit $a_n \neq 0 \; \forall n \in \nat$, so dass
+\begin{equation}
+	\alpha = \limninfty \frac{|a_{n+1}|}{|a_n|}
+\end{equation}
+
+existiert. Dann gilt
+\begin{equation}
+	\begin{aligned}
+		\alpha < 1 &\implies \sumkinfty a_n \mytext{ist absolut konvergent} \\
+		\alpha > 1 &\implies \sumkinfty a_n \mytext{ist divergent und $\limninfty a_n \neq 0$}
+	\end{aligned}
+\end{equation}
+\end{thm}
+
+% Wichtige Übung 7.33. Beweisen Sie Korollar 7.32
+
+\subsection{Umordnen von Reihen}
+
+% Satz 7.35 
+\setcounter{thm}{34}
+\begin{thm}
+	Sei $\sumninfty a_n \in \nat \times \compl$ absolut konvergent. Sei $\varphi: \nat \to \nat$ eine Bijektion. Dann ist $\sumninfty a_{\varphi(k)}$ ebenso absolut konvergent und es gilt
+	\begin{equation}
+		\sumninfty a_n = \sumninfty a_{\varphi(n)}
+	\end{equation}
+\end{thm}
+
+\subsection{Produkte} 
+
+\begin{thm}
+	
+	Seien $\sumninfty a_n$ mit $a_n \in \nat \times \compl$ und $\sumninfty b_n$ mit $b_n \in \nat \times \compl$ zwei absolut konvergente Reihen. Sei $\varphi \to \nat \times \nat$ eine biijektive Abbildung. Dann ist
+	\begin{equation}
+		\sumninfty a_{\varphi(n)_1} b_{\varphi(n)_2} 
+	\end{equation}
+	
+	eine absolut konvergente Reihe, wobei $\varphi (n) = (\varphi(n)_1, \varphi(n)_2)$. Weiters gilt
+	\begin{equation}
+		\sumninfty a_{\varphi(n)_1} b_{\varphi(n)_2} = \left( \sumninfty a_n \right) \left( \sumninfty b_n \right)
+	\end{equation}
+	
+	Informell ausgedrückt kann man schreiben
+	\begin{equation}
+		\left( \sumninfty a_n \right) \left( \sumninfty b_n \right) =
+	  \sumninfty \left( \sumninfty b_n \right) a_m =
+	  \sum_{(m,n) \in \nat^2} a_m b_n
+	\end{equation}
+\end{thm}
+
+
+% Korollar 7.37 (Cauchy-Produkt)
+\setcounter{thm}{36}
+\begin{thm}
+	Falls $\sumninfty a_n$ und $\sumninfty b_n$ absolut konvergente Reihen mit komlexen Gliedern sind, dann gilt
+	\begin{equation}
+		\sum_{n=0}^{\infty} \left ( \sum_{k=0}^{n} a_{n-k} b_k \right )
+		=\left( \sumninfty a_n \right) \left( \sumninfty b_n \right)
+	\end{equation}
+\end{thm}
+

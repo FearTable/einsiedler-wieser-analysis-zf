@@ -1,0 +1,47 @@
+\section{Konvergenz von Funktionsfolgen}
+\subsection{Punktweise Konvergenz}
+\begin{mydef}[Funktionsfolgen und punktweise Kovergenz]
+	Eine reellwertige oder komlexwertige ``Funktionsfolge" ist eine Folge $(f_n)_n$ von Funktionen $f_n: X \to \real$ (oder $f_n: X \to \compl$). 
+	
+	Wir sagen dass eine Funktion ``punktweise" gegen eine Funktion $f: X \to \real$ (oder $f: X \to \compl$) ``konvergiert", falls $f_n(x) \to f(x)$ für $n \to \infty$ $\; \forall x\in X$.
+	
+	Wir bezeichnen die Funktion $f$ als den ``punktweisen Grenzwert" (oder auch ``Grenzfunktion" oder ``Limes") der Funktionsfolge $(f_n)_n$
+	\begin{equation}
+		\forall x \in X \; \forall \epsilon > 0 \; \exists M \in \nat \; \forall n \in \nat : (n > M \implies |f_n(x)-f(x)| < \epsilon) 
+	\end{equation}
+	gegeben.
+
+\end{mydef}
+
+\subsection{Gleichmässige Konvergenz}
+
+\begin{mydef}[Gleichmässige Konvergenz]
+	Wir sagen, $f_n$ ``strebt gleichmässig" gegen $f$ für $n \to \infty$, oder dass $f$ der ``gleichmässige Grenzwert" der Funktionenfolge $(f_n)_n$ ist, falles es zu jedem $\epsilon > 0$ ein $M \in \nat$ gibt, so dass $\forall n > M$ und alle $x\in X$ die Abschätzung
+	\begin{equation}
+		|f_n(x)-f(x)|<\epsilon
+	\end{equation}
+	
+	gilt. In der Prädikatenlogik ist gleichmässige Konvergenz durch
+	\begin{equation}
+	  \forall \epsilon > 0 \; \exists M \in \nat \; \forall n\in \nat : \big(n\geq M \implies ( \forall x \in X: |f_n(x) - f(x)| < \epsilon ) \big)
+	\end{equation}
+	gegeben.
+	
+\end{mydef}
+
+% Satz 7.48
+\setcounter{thm}{47}
+\begin{thm}[Gleichmässige Konvergenz und Stetigkeit]
+	\label{thm:gleichmaessige-konvergenz-und-stetigkeit} 
+	Sei $D\subseteq \compl$ und $f_n : D\to \compl$ eine Funktionsfolge stetiger Funktionen. Falls $(f_n)_n$ gleichmässig gegen $f:d \to \compl$ konvergiert, dann ist $f$ ebenso stetig.
+\end{thm}
+
+% Satz 7.49
+\begin{thm}
+	Sei $[a,b]$ ein kompaktes Intervall und $f_n: [a,b] \to \real$ eine Funktionsfolge Riemann-integrierbarer Funktionen. Falls $(f_n)_n$ gleichmässig gegen $f:[a,b] \to \real$ konvergiert, dann ist $f$ Riemann-integrierbar und
+	\begin{thm}
+		\begin{equation}
+			\limninfty \int_{a}^{b} f_n \dx = \int_{a}^{b} \limninfty f_n \dx = \int_{a}^{b} f \dx
+		\end{equation}
+	\end{thm}
+\end{thm}
