@@ -111,7 +111,7 @@
 \newcommand\myor{\;\;\, \text{or}\;\;}
 \newcommand\where{\;\;\, \text{where}\;\;}
 \newcommand\whereEach{\;\;\, \text{where each}\;\;}
-\newcommand\und{\;\;\, \text{und}\;\;}
+\newcommand\und{\;\; \text{und}\;\;}
 \newcommand\oder{\;\;\, \text{oder}\;\;}
 \newcommand\fuer{\;\;\, \text{für}\;\;}
 \newcommand\fueralle{\;\;\, \text{für alle}\;\;}
@@ -268,6 +268,9 @@
 %{
 %	\hfill $\Box$ \\
 %}
+
+% make counter equal
+\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
 
 \setlength{\abovedisplayskip}{4pt}
 \setlength{\belowdisplayskip}{3pt}

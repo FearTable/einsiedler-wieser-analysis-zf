@@ -146,6 +146,8 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
   \vspace{-1em}
 \end{prf}
 
+% 1.41
+\mce{41}
 \begin{imp-ex}[Weitere Eigenschaften von Verknüpfungen]
   Seien $f: X \to Y$ und $g: Y \to Z$ Funktionen.
   
@@ -257,5 +259,44 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
       
       Somit haben wir gezeigt, dass $g$ injektiv ist.
     } 
+  \end{enumerate}
+\end{imp-ex}
+
+% 1.4.4
+\subsection{Bild- und Urbildmenge}
+Sei $f: X \to Y$ und $A \subseteq X$. Man erinnert sich and die Notation $f(A) :\equiv \{f(x) \mid x \in A\}.$ für das Bild von $A$. Manchmal verwenden wir auch für eine Aussage $P(x)$ die Notation:
+\begin{equation}
+  \{ f(x) \mid x \in X \und P(x) \} : \equiv
+  \left \{ y \mid y \in Y \und \exists x \in X : \left(f(x) = y \und P(x) \right) \right \}
+\end{equation}
+
+\mce{48}
+\begin{mydef} [Urbilder bezüglich einer Funktion]
+  Für $f:X \to Y$ und $B \subseteq Y$ definieren wird das \qt{Urbild} $f^{-1} (B)$ von $B$ unter $f$ als 
+  \begin{equation}
+    f^{-1} (B) :\equiv \{ x \in X \mid f(x) \in B \}
+  \end{equation}
+  
+  Es gilt beispielsweise $f^{-1} (Y) = X$ und $f^{-1}( \{\})= \{\}$.
+\end{mydef}
+
+\begin{imp-ex}[Verhalten von Bildern und Urbilderln unter Mengenoperationen]
+  Sei $f:X \to Y$ und $A, A' \subseteq X$ und $B,B' \subseteq Y$.
+  \begin{enumerate}[label=(\roman*)]
+    \item Zeigen Sie, dass $ f(f^{-1}(B)) \subseteq B$ gilt. Unter welcher Bedingung an $f$ gilt auf jeden Fall Gleichheit?
+    
+    \textbf{Lösung:} 
+    \begin{equation}
+      \begin{aligned}
+        f(f^{-1}(B)) 
+        &= \{ y \in Y \mid \exists x \in \{ x \in X \mid f(x) \in B\} : y= f(x) \} \\ 
+        &= \{ y \in Y \mid \exists x \in X \und f(x) \in B \und y = f(x) \} \\ 
+        &= \{ y \in Y \mid \exists x \in X \und y = f(x) \in B  \} \\ 
+        &= \{ f(x) \mid x \in X \und f(x) \in B  \} \\
+        & \subseteq B
+      \end{aligned}
+    \end{equation}
+    
+    Es herrscht auf jeden Fall Gleicheit, falls $f$ surjektiv ist, weil $B \subseteq Y$. Das bedeutet, $\forall y \in B \; \exists x \in X: y = f(x)$.
   \end{enumerate}
 \end{imp-ex}
