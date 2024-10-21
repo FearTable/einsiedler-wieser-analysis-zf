@@ -1,21 +1,110 @@
+% only displays equation numbers if they are referenced
+\mathtoolsset{showonlyrefs,showmanualtags}
 
+\DeclareEmphSequence{\scshape}
+
+% BEGIN custom geometry ************************************
+\setlength{\abovedisplayskip}{0.1em}
+\setlength{\belowdisplayskip}{0.2em}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\jot}{0pt}
+
+\titlespacing{\chapter}{0pt}{0em}{0.4em}
+\titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
+\titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
+%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+%\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+
+%For item, enumerate, description, lists
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setdescription{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setlist{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+% END custom geometry **************************************
+
+% new mdframed style that places the edges at the corners (.675em):
+\mdfdefinestyle{proof-style}{
+  skipabove         = 0.2em,% .5\baselineskip ,
+  skipbelow         = 0,%.5\baselineskip ,
+  leftmargin        = 0.4em ,
+  rightmargin       = 0.4em ,
+  innermargin       = 0pt ,
+  innertopmargin    = 0.4em, %0.6 %.675em ,
+  innerleftmargin   = 0.4em, %.675em ,
+  innerrightmargin  = 0.4em,
+  innerbottommargin = 0.2em, %.675em +3pt,
+  hidealllines      = true,
+  singleextra       = {
+    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+  },
+  firstextra        = {
+    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+  },
+  secondextra       = {
+    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+  },
+}
+
+\surroundwithmdframed[style=proof-style]{prf}
+\surroundwithmdframed[style=proof-style]{proof}
+\newtheorem*{prf}{Proof}
+
+% custom QED Symbol
+%\newcommand*\closedbox{%
+  %    \leavevmode\hbox to.77778em{\rule{.675em}{.675em}}}
+%\let\qedsymbol\closedbox
+
+\renewenvironment{proof}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
+\renewenvironment{prf}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
+
+% put the new mdframed style around the 'proof' and 'xmpl0 environment:
+%\surroundwithmdframed[style=proof]{xmpl}
+
+% BEGIN custom therem and proof environments ***************
+\newtheoremstyle{mytheoremstyle} % name
+{0.4em}                       % Space above {\topsep} 
+{.2em}                        % Space below
+{}                            % Body font
+{0em}                         % Indent amount
+{}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
+{\textbf{:\,}}       % Punctuation after theorem head
+{.2em}                        % Space after theorem head
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont{\;}\thmnote{({\itshape#3})}}}} 
+% Theorem head spec (can be left empty, meaning ‘normal’)
+
+% Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
+% environments
+
+\theoremstyle{mytheoremstyle}
+\newtheorem{thm}{Thm}[chapter]
+\newtheorem*{thm-non}{Thm}
+
+%\theoremstyle{mytheoremstyle}
+\newtheorem{mydef}[thm]{Def}
+\newtheorem*{mydef-non}{Def}
+
+%\theoremstyle{mytheoremstyle}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{example-non}{Example}
+
+%\theoremstyle{mytheoremstyle}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem*{lemma-non}{Lemma}
+
+\newtheorem{imp-ex}[thm]{Wichtige Übung}
+\newtheorem*{imp-ex-non}{Wichtige Übung}
+
+\newtheorem{xrcs}{Exercise}
+\newtheorem*{xrcs-non}{Exercise}
+
+% quotes
+\newcommand\qt[1]{\textit{``#1''}}
 
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
-
-%\def\deltaLow{{ \color{purple}{ \delta_{\text{low}} }}}
-%\def\deltaSup{{ \color{purple}{ \delta_{\text{sup}} }}}
-%\def\deltaHigh{{ \color{purple}{ \delta_{\text{high}} }}}
-%\def\deltaVanilla{{ \color{purple}{ \delta }}}
-%
-%\def\tHigh{{ \color{olive}{ t_{\text{high}} }}}
-%\def\tLow{{ \color{olive}{ t_{\text{low}} }}}
-%
-%\def\supremum{{ \color{RoyalBlue}{ \tilde s }}}
-%\def\SSet{{ \color{RoyalBlue}{ S }}}
-%
-%\def\myEpsilon{{ \color{black}{\epsilon }}}
-%\def\myspan{{ \color{black}{\text{span} }}}
 
 \newcommand{\mytext}[1]{\;\; \text{#1}\;\;}
 \newcommand\myand{\;\;\, \text{and}\;\;}
@@ -130,55 +219,61 @@
 
 \def\bold#1{{\bf #1}}
 
-\newtheoremstyle{mytheoremstyle} % name
-%{\topsep}                    % Space above
-{0.8em}                    % Space above
-{0em}                        % Space below
-{}                           % Body font
-{0em}                           % Indent amount
-%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-{\bfseries\scshape}                   % Theorem head font
-{:\newline}                          % Punctuation after theorem head
-{.3em}                       % Space after theorem head
-{}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{thm}{Theorem}[chapter]
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{mydef}[thm]{Definition}
-\newtheorem*{mydef-non}{Definition}
-
-\theoremstyle{mytheoremstyle}
-\newtheorem{example}[thm]{Example}
-
-
-
-\newtheoremstyle{indented}
-{3pt}% space before
-{3pt}% space after
-{\addtolength{\@totalleftmargin}{3.5em}
-  \addtolength{\linewidth}{-3.5em}
-  \parshape 1 3.5em \linewidth}% body font
-{}% indent
-{\bfseries}% header font
-{.}% punctuation
-{.5em}% after theorem header
-{}% header specification (empty for default)
-\makeatother
-
-\renewenvironment{proof}
-{
-	{
-		\bfseries
-		\scshape
-		\itshape
-		\selectfont
-		Beweis:}
-}
-{
-	\hfill $\Box$ \\
-}
+%\newtheoremstyle{mytheoremstyle} % name
+%%{\topsep}                    % Space above
+%{0.8em}                    % Space above
+%{0em}                        % Space below
+%{}                           % Body font
+%{0em}                           % Indent amount
+%%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
+%{\bfseries\scshape}                   % Theorem head font
+%{:\newline}                          % Punctuation after theorem head
+%{.3em}                       % Space after theorem head
+%{}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
+%
+%\theoremstyle{mytheoremstyle}
+%\newtheorem{thm}{Theorem}[chapter]
+%
+%\theoremstyle{mytheoremstyle}
+%\newtheorem{mydef}[thm]{Definition}
+%\newtheorem*{mydef-non}{Definition}
+%
+%\theoremstyle{mytheoremstyle}
+%\newtheorem{example}[thm]{Example}
+%
+%
+%
+%\newtheoremstyle{indented}
+%{3pt}% space before
+%{3pt}% space after
+%{\addtolength{\@totalleftmargin}{3.5em}
+%  \addtolength{\linewidth}{-3.5em}
+%  \parshape 1 3.5em \linewidth}% body font
+%{}% indent
+%{\bfseries}% header font
+%{.}% punctuation
+%{.5em}% after theorem header
+%{}% header specification (empty for default)
+%\makeatother
+%
+%\renewenvironment{proof}
+%{
+%	{
+%		\bfseries
+%		\scshape
+%		\itshape
+%		\selectfont
+%		Beweis:}
+%}
+%{
+%	\hfill $\Box$ \\
+%}
 
 \setlength{\abovedisplayskip}{4pt}
 \setlength{\belowdisplayskip}{3pt}
+
+\setlength{\abovedisplayskip}{0.1em}
+\setlength{\belowdisplayskip}{0.2em}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\jot}{0pt}
