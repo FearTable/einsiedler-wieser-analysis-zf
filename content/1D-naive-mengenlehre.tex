@@ -3,18 +3,18 @@
 
 % 1.22 Disjunktheit
 \begin{mydef}[Disjunktheit]
-  
-  $A,B$ heissen \qt{disjunkt}, falls $A\cup B = \{ \}$. 
+
+  $A,B$ heissen \qt{disjunkt}, falls $A\cup B = \{ \}$.
   In diesem Fall wird $A\cup B$ \qt{disjunkte Vereinigung} genannt und aus als $A \sqcup B$ geschrieben. Für eine Kollektion $\mathcal{A}$ von Mengen, sagen wir, dass die Mengen in $A$ \qt{paarweise disjunkt} sind, falls
   \begin{equation}
     \forall A_1, A_2 \in \mathcal{A} $ mit $ A_1\neq A_2 $ gilt $ A_1 \cup A_2 = \{ \}.
   \end{equation}
-  
-  Die Vereinigung der Mengen in $\mathcal{A}$ wird dann auch \qt{disjunkte Vereinigung} genannt und wird in diesem fall auch als 
+
+  Die Vereinigung der Mengen in $\mathcal{A}$ wird dann auch \qt{disjunkte Vereinigung} genannt und wird in diesem fall auch als
   \begin{equation}
     \bigsqcup_{A\in\mathcal{A}} A :\equiv \bigcup_{A\in\mathcal{A}} A
   \end{equation}
-  
+
   geschrieben.
 \end{mydef}
 
@@ -46,10 +46,10 @@
   \begin{equation}
     \left. f \right | _{A} (x) :\equiv f(x)  \quad \forall x \in A
   \end{equation}
-  
+
   Des Weiteren definieren wir das \qt{Bild der Teilmenge $A$} unter $f$ als
   \begin{equation}
-    f(A) = \left. f \right |_{A}(A) :\equiv \{y \in Y \mid \exists x \in A : y=f(x) \}
+    f(A) = \left. f \right |_{A}(A) :\equiv \{y \in Y \mid \exists x \in A : y=f(x) \} = \{y \mid y \in Y \und \exists x \in A : y=f(x) \}
   \end{equation}
 \end{mydef}
 
@@ -59,21 +59,21 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
 \begin{mydef}[Drei Eigenschaften von Funktionen]
   Sei $f: X \to Y$ eine Funktion.
   \begin{itemize}
-    \item $f$ heisst \qt{injektiv} oder eine \qt{Injektion} falls $\forall x_1, x_2 \in X$ gilt, dass 
+    \item $f$ heisst \qt{injektiv} oder eine \qt{Injektion} falls $\forall x_1, x_2 \in X$ gilt, dass
     \begin{equation}
       f(x_1) = f(x_2) \implies x_1 = x_2 $ oder$
     \end{equation}
     \begin{equation}
       x_1 \neq x_2 \implies f(x_1) \neq f(x_2).
     \end{equation}
-    
-    \item $f$ heisst \qt{surjektiv},eine \qt{Surjektion} oder eine Funktion von \qt{X auf Y}, falls 
+
+    \item $f$ heisst \qt{surjektiv},eine \qt{Surjektion} oder eine Funktion von \qt{X auf Y}, falls
     \begin{equation}
       \forall y \in Y \; \exists x \in X: f(x) = y
     \end{equation}
-    
+
     Also falls $f(X) = Y$.
-    
+
     \item $f$ heisst \qt{bijektiv}, eine \qt{Bijektion} oder eine \qt{eineindeutige Abbildung}, falls $f$ surjektiv und injektiv ist.
   \end{itemize}
 \end{mydef}
@@ -84,23 +84,23 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
   \begin{enumerate}[label=(\roman*)]
     \item Falls $f$ und $g$ injektiv sind, dann ist auch $g \circ f : X \to Z$ injektiv.
     \item Falls $f$ und $g$ surjektiv sind, dann ist auch $g \circ f : X \to Z$ surjektiv.
-    \item Falls $f$ und $g$ bijektiv sind, dann ist auch $g \circ f : X \to Z$ bijektiv und es gilt 
+    \item Falls $f$ und $g$ bijektiv sind, dann ist auch $g \circ f : X \to Z$ bijektiv und es gilt
     \begin{equation}
       (g \circ f)^{-1} = f^{-1} \circ g^{-1}
     \end{equation}
   \end{enumerate}
-  
+
 \end{lemma}
 \begin{prf}
   %\phantom{.}
   \begin{enumerate}[label=(\roman*)]
     \item
-    { 
+    {
       Seien $f: X\to Y$ und $g:Y \to Z$ injektiv und $ x_1, x_2 \in X$ beliebig gewählt, sodass
       \begin{equation}
         g \circ f(x_1) = g \circ f(x_2).
       \end{equation}
-      
+
       Aus der Definition der Verknüpfung $g(f(x_1)) = g(f(x_2))$ und weil $g$ injektiv ist folgt, dass \begin{equation}
         f(x_1) = f(x_2). $ Dies impliziert aufgrund der Injektivität von $f$ ebenso, dass $
       \end{equation}
@@ -120,13 +120,13 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
       \begin{equation}
         g \circ f(x) = g(f(x)) = g(y) = z. $\phantom{A}$
       \end{equation}
-      
+
       Also $\forall z\in Z \; \exists x \in X: g \circ f (x) = z$ und daher ist $g \circ f$ surjektiv.
     }
     \item
     {
       Wenn $f: X\to Y$ und $g:Y \to Z$ bijektiv sind dann ist $g\circ f: X \to Z$ injektv und surjektiv und somit auch bijektiv wegen Teil (i) und (ii). Wir wollen zeigen, dass $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
-      
+
       Sei $z \in Z$. Die Inversen $f^{-1}: Y \to X$ und $g^{-1}: Z \to Y$ erfüllen die Aussagen
       \begin{equation}
         \begin{aligned}
@@ -134,12 +134,12 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
           g(g^{-1}(z)) = z \quad \forall z \in Z
         \end{aligned}
       \end{equation}
-      
-      Weswegen auch $f^{-1}(g^{-1}(z)) \in X$ wohldefiniert ist und 
+
+      Weswegen auch $f^{-1}(g^{-1}(z)) \in X$ wohldefiniert ist und
       \begin{equation}
         g \circ f (f^{-1} (g^{-1}(z))) = g(f(f^{-1}(g^{-1}(z))))=g(g^{-1}(z))=z
       \end{equation}
-      
+
       für alle $z \in Z$ gilt. Damit ist (iii) bewiesen.
     }
   \end{enumerate}
@@ -150,66 +150,66 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
 \mce{41}
 \begin{imp-ex}[Weitere Eigenschaften von Verknüpfungen]
   Seien $f: X \to Y$ und $g: Y \to Z$ Funktionen.
-  
+
   \begin{enumerate}[label=(\roman*)]
     \item {
       Zeigen Sie, dass $g$ surjektiv ist, falls $g \circ f: X \to Z$ surjektiv ist. Überzeugen Sie sich davon, dass in diesem Fall $f$ nicht unbedingt surjektiv sein muss.
-    
+
       \textbf{Lösung:} Sei $z \in Z$. Falls $g \circ f$ surjektiv, existiert ein $x \in X$ so dass $g \circ f(x) = z = g(f(x))$. Da $f(x) \in Y$ gilt folgendes:
       \begin{equation}
         \forall z \in Z \; \exists y \in Y: g(y) = z
       \end{equation}
-      
+
       Womit wir gezeigt haben, dass auch $g$ surjektiv ist. $f$ muss in diesem Fall nicht zwingend surjektiv sein, da die Menge $Y$ von $f$ nicht unbedingt ausgeschöpft wird. Man muss aber erwähnen, dass die Menge $Y$ von $g$ selbst komplett verwendet wird, auch wenn sie womöglich von der Verknüpfung selbst nicht vollständig beansprucht wird. Funktionen sind auf ihrem Definitionsbereich immer definiert.
     }
-    
+
     \item {
       Zeigen Sie, dass $f$ surjektiv ist, falls $g \circ f$ surjektiv und $g$ injektiv ist.
-      
+
       \textbf{Lösung:} Wir arbeiten mit folgender Voraussetzung, da $g\circ f$ surjektiv ist:
       \begin{equation}
         \forall z \in Z \; \exists x \in X : g \circ f(x) = g(\underbrace{f(x)}_{\in Y}) = z.
       \end{equation}
-      
-      Die obere Gleichung ist gleichbeutend mit 
+
+      Die obere Gleichung ist gleichbeutend mit
       \begin{equation}
-        \forall z \in Z \; \exists x \in X \; \exists y \in Y : g \circ f(x) = g(y) = z \und f(x) = y 
+        \forall z \in Z \; \exists x \in X \; \exists y \in Y : g \circ f(x) = g(y) = z \und f(x) = y
       \end{equation}
-      
-      Da aber $g$ injektiv ist und wir aus Teil (i) wissen, dass $g$ auch zwingend surjektiv sein muss, ist $g$ auch bijektiv. Das heisst, für jedes $z$ aus $Z$ existiert genau ein $y$ aus $Y$ welches 
+
+      Da aber $g$ injektiv ist und wir aus Teil (i) wissen, dass $g$ auch zwingend surjektiv sein muss, ist $g$ auch bijektiv. Das heisst, für jedes $z$ aus $Z$ existiert genau ein $y$ aus $Y$ welches
       \begin{equation}
-        g(y) = z \und f(x) = y 
+        g(y) = z \und f(x) = y
       \end{equation}
       erfüllt. Somit gilt
       \begin{equation}
         \forall y \in Y \; \exists x \in X: f(x) = y.
-      \end{equation}  
-       
+      \end{equation}
+
        Somit ist $f$ surjektiv.
     }
-    
-    \item{ 
+
+    \item{
       Zeigen Sie, dass $f$ injektiv ist, falls $g \circ f$ injektiv ist. Überzeugen Sie sich davon, dass in diesem Fall $g$ nicht unbedingt injektiv sein muss.
-    
+
       \textbf{Lösung:} Da $g \circ f$ injektiv ist, wissen wir
       \begin{equation}
         \forall x_1, x_2 \in X: x_1 \neq x_2 \implies g (\underbrace{f (x_1)}_{\in Y}) \neq g ( \underbrace{f (x_2)}_{\in Y}).
       \end{equation}
-      
+
       Daraus folgt aber auch, dass $f(x_1) \neq f(x_2)$, womit wir gezeigt haben, dass $f$ auch injektiv ist.
-      
+
       $g$ muss nicht unbedingt injektiv sein, da $Y$ grösser sein kann als $X$.
     }
-    
+
     \item {
       Zeigen Sie, dass $g$ injektiv ist, falls $g \circ f$ injektiv ist und $f$ surjektiv ist.
-      
+
       \textbf{Lösung:} Die Injektivität von $g\circ f$ bedeutet, dass
       \begin{equation}
         \forall x_1, x_2 \in X:
           g(f(x_1)) = g(f(x_2)) \implies x_1 = x_2. $ (Das bedeutet auch, dass $f(x_1) = f(x_2)$ ist)$
       \end{equation}
-      
+
       Respektive mit Zwischenschritten
       \begin{equation}
         \begin{aligned}
@@ -218,12 +218,12 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
           &\quad \implies x_1 = x_2) \implies y_1=y_2
         \end{aligned}
       \end{equation}
-      
-      Aus der Surjektivität von $f$ wissen wir auch 
+
+      Aus der Surjektivität von $f$ wissen wir auch
       \begin{equation}
         \forall y_1,y_2 \in Y \; \exists x_1, x_2 \in X : y_1 = f(x_1) $ und $ y_2 = f(x_2).
       \end{equation}
-      
+
       Und somit können wir die Werte für $y_1$  und $y_2$ auch direkt verwenden, da sowieso die gesammte Menge $Y$ verwendet wird.
       \begin{equation}
         \begin{aligned}
@@ -232,33 +232,33 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
           &\quad \implies x_1 = x_2 \implies y_1=y_2
         \end{aligned}
       \end{equation}
-      
-      vereinfacht sich zu 
+
+      vereinfacht sich zu
       \begin{equation}
         \begin{aligned}
           &\forall y_1,y_2: g(y_1) = g(y_2) \implies y_1=y_2,
         \end{aligned}
       \end{equation}
-      
+
       womit wir gezeigt haben, dass $g$ injektiv ist.
-      
-      Eine direktere Formulierung wäre wie folgt: Die Injektivität von $g \circ f$ beduetet, dass  
+
+      Eine direktere Formulierung wäre wie folgt: Die Injektivität von $g \circ f$ beduetet, dass
       \begin{equation}
         \forall x_1, x_2 \in X:
         g \circ f (x_1) = g (f(x_1)) = g(f(x_2)) = g \circ f(x_2) \implies x_1 = x_2.
       \end{equation}
-      
+
       Dies bedeutet aber auch, dass im Falle einer Implikation, $f(x_1) = f(x_2)$ ist. Weil $f$ surjektiv ist, gilt. \begin{equation}
         \forall y \in Y \; \exists x \in X: y = f(x).
       \end{equation}
-      
+
       Das heisst, wir können die Menge $Y$ direkt verwenden und kommen zum Schluss dass
       \begin{equation}
         \forall y_1, y_2 \in Y: g(y_1) = g(y_2) \implies y_1 = y_2
-      \end{equation} 
-      
+      \end{equation}
+
       Somit haben wir gezeigt, dass $g$ injektiv ist.
-    } 
+    }
   \end{enumerate}
 \end{imp-ex}
 
@@ -266,17 +266,22 @@ Für eine Funktion schreibt man $f: X \to Y, x \mapsto f(x)$ oder $x \in X \maps
 \subsection{Bild- und Urbildmenge}
 Sei $f: X \to Y$ und $A \subseteq X$. Man erinnert sich and die Notation $f(A) :\equiv \{f(x) \mid x \in A\}.$ für das Bild von $A$. Manchmal verwenden wir auch für eine Aussage $P(x)$ die Notation:
 \begin{equation}
-  \{ f(x) \mid x \in X \und P(x) \} : \equiv
-  \left \{ y \mid y \in Y \und \exists x \in X : \left(f(x) = y \und P(x) \right) \right \}
+  \label{eq: vereinfachte schreibweise}
+  \begin{aligned}
+    \{ f(x) \mid x \in X \und P(x) \}
+    : &\equiv
+    \left \{ y \mid y \in Y \und \exists x \in X : \left(f(x) = y \und P(x) \right) \right \} \\
+    &=   \left \{ y \in Y \mid  \exists x \in X : \left(f(x) = y \und P(x) \right) \right \}
+  \end{aligned}
 \end{equation}
 
 \mce{48}
 \begin{mydef} [Urbilder bezüglich einer Funktion]
-  Für $f:X \to Y$ und $B \subseteq Y$ definieren wird das \qt{Urbild} $f^{-1} (B)$ von $B$ unter $f$ als 
+  Für $f:X \to Y$ und $B \subseteq Y$ definieren wird das \qt{Urbild} $f^{-1} (B)$ von $B$ unter $f$ als
   \begin{equation}
     f^{-1} (B) :\equiv \{ x \in X \mid f(x) \in B \}
   \end{equation}
-  
+
   Es gilt beispielsweise $f^{-1} (Y) = X$ und $f^{-1}( \{\})= \{\}$.
 \end{mydef}
 
@@ -284,19 +289,19 @@ Sei $f: X \to Y$ und $A \subseteq X$. Man erinnert sich and die Notation $f(A) :
   Sei $f:X \to Y$ und $A, A' \subseteq X$ und $B,B' \subseteq Y$.
   \begin{enumerate}[label=(\roman*)]
     \item Zeigen Sie, dass $ f(f^{-1}(B)) \subseteq B$ gilt. Unter welcher Bedingung an $f$ gilt auf jeden Fall Gleichheit?
-    
-    \textbf{Lösung:} 
+
+    \textbf{Lösung:}
     \begin{equation}
       \begin{aligned}
-        f(f^{-1}(B)) 
-        &= \{ y \in Y \mid \exists x \in \{ x \in X \mid f(x) \in B\} : y= f(x) \} \\ 
-        &= \{ y \in Y \mid \exists x \in X \und f(x) \in B \und y = f(x) \} \\ 
-        &= \{ y \in Y \mid \exists x \in X \und y = f(x) \in B  \} \\ 
-        &= \{ f(x) \mid x \in X \und f(x) \in B  \} \\
+        f(f^{-1}(B))
+        &= \{ y \in Y \mid \exists x \in \{ x \in X \mid f(x) \in B\} : y= f(x) \} \\
+        &= \{ y \in Y \mid \exists x \in X : f(x) \in B \und y = f(x) \} \\
+        &= \{ y \in Y \mid \exists x \in X : y = f(x) \in B  \} \\
+        &= \{ f(x) \mid x \in X \und f(x) \in B  \} \qquad \qquad \mytext{Siehe: \eqref{eq: vereinfachte schreibweise}} \\
         & \subseteq B
       \end{aligned}
     \end{equation}
-    
+
     Es herrscht auf jeden Fall Gleicheit, falls $f$ surjektiv ist, weil $B \subseteq Y$. Das bedeutet, $\forall y \in B \; \exists x \in X: y = f(x)$.
   \end{enumerate}
 \end{imp-ex}
