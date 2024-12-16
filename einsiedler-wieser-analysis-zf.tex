@@ -1,4 +1,4 @@
-\documentclass[11pt]{report}
+\documentclass[9pt]{report}
 \usepackage{listings}
 \usepackage{matlab-prettifier}
 \usepackage[fleqn]{amsmath}
@@ -16,13 +16,13 @@
 \usepackage{lmodern}
 \usepackage{ragged2e}
 %\usepackage[rmx]{kpfonts}
-\usepackage{concmath}
+%\usepackage{concmath}
 \usepackage{lipsum}
 \usepackage{xfrac}
 \usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
-\usepackage[fontsize=10pt]{scrextend}
+%\usepackage[fontsize=10pt]{scrextend}
 \usepackage{relsize}
 \usepackage{enumitem}
 \usepackage{etoolbox}
@@ -30,7 +30,7 @@
 \usepackage{mathtools}
 \usepackage[shortcuts]{extdash}
 \usepackage[framemethod=tikz]{mdframed}
-\usepackage[T1]{fontenc} 
+\usepackage[T1]{fontenc}
 \usepackage{inconsolata}
 \usepackage[most]{tcolorbox}
 
@@ -54,8 +54,8 @@
 \geometry{
 	a4paper,
 	total={170mm,257mm},
-	left=17mm,
-	right=17mm,
+	left=22mm,
+	right=22mm,
 	top=15mm,
 }
 
@@ -78,40 +78,43 @@
 
 \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
-\titleformat{\section}{\bfseries\relscale{1.2}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
+\titleformat{\section}{\bfseries\relscale{1.1}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
 \titleformat{\subsection}{\bfseries\relscale{1.1}}{}{0em}{#1\  { } (\thesubsection)} %large
-\titleformat{\subsubsection}{\ttfamily}{}{0em}{#1\  \thesection}
+\titleformat{\subsubsection}{\bfseries\relscale{1.1}}{}{0em}{#1\  { } (\thesubsubsection)}
 
 \linespread{1.1}
 
 
 \begin{document}
 
-	  
+
 
   \input{def}
 
   \chapter{Einführung}
   \input{content/1D-naive-mengenlehre}
-  
+
 
   \chapter{Die reellen Zahlen}
-	.
-	
+  \input{content/2A-axiome-der-reellen-zahlen}
+  \input{content/2D-intervalle-und-der-absolutbetrag}
+  \input{content/2E-maximum-und-supremum}
+  \input{content/2F-erste-konsequenzen-der-vollständigkeit}
+
 	\chapter{Funktionen und die reellen Zahlen}
-	
+
   \chapter{Das Riemann-Integral}
-	.
-	
+
+
   \chapter{Metrische Räume, Folgen und Stetigkeit}
 	\input{content/5A-normierte-vektorraeume}
 	\input{content/5B-metrische-raeume}
 	\input{content/5C-folgen-und-konvergenz}
-	
+
   \chapter{Grenzwerte reeller Folgen und Funktionen}
  	.
- 	
-	
+
+
   \chapter{Reihen, Funktionsfolgen und Potenzreihen}
   \input{content/7A-reihen}
   \input{content/7B-absolute-konvergenz}

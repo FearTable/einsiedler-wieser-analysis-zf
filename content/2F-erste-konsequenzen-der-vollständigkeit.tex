@@ -1,0 +1,14 @@
+\section{Erste Konsequenzen der Vollständigkeit}
+
+\subsection{Das Archimedische Prinzip}
+
+\begin{thm}[Das Archimedische Prinzip]
+  \phantom{.} \\
+  Es gelten folgende Aussagen:
+  \begin{enumerate}
+    \item Jede nicht-leere, von oben beschränkte Teilmenge von $\integer$ hat ein Maximum.
+    \item $\forall x \in \real \; \exists! n \in \integer$: $n \leq x < n+1$. Dies wird als der eindeutig bestimmte \qt{ganzzahlige Anteil} $\lfloor x \rfloor$ einer reellen Zahl $x \in \real$ definiert. Wir erhalten also die Funktion $x \in \real \mapsto \lfloor x \rfloor \in \integer$, die auch \qt{Abrundungsfunktion} genannt wird.
+    \item $\forall \epsilon > 0 \; \exists n \in \nat: \frac{1}{n} < \epsilon$.
+  \end{enumerate}
+\end{thm}
+Der \qt{gebrochene Anteil} (oder auch \qt{Nachkommaanteil}) ist $\{ x\} :\equiv x - \lfloor x \rfloor \in [0,1)$. Wir erhalten eine Funktion $x \in \real \mapsto \{ x\} \in [0, 1)$ mit $x=\lfloor x \rfloor + \{ x\} \quad \forall x \in \real$.

@@ -1,0 +1,107 @@
+\section{Maximum und Supremum}
+
+\subsection{Maximum und Minimum}
+
+\mce{56}
+\begin{mydef}[Maximum] Für eine Teilmenge $X \subseteq \real$ sagen wir, dass
+  \[
+    x_0 :\equiv \operatorname{max} (X) \in \real.
+  \]
+
+das \qt{Maximum} von $X$ ist, falls $\forall x \in X: x \leq x_0$ gilt.
+\end{mydef}
+
+\begin{mydef}[Minimum]
+  Analog sagen wir für eine Teilmenge $X \subseteq \real$, dass
+  \[
+  x_0 :\equiv \operatorname{min} (X) \in \real.
+  \]
+
+  das \qt{Minumum} von $X$ ist, falls $\forall x \in X: x \geq x_0$ gilt.
+\end{mydef}
+
+\subsection{Supremum und Infimums}
+
+\begin{mydef}[Beschränktheit und Schranken]
+  $X \subseteq \real$ heisst \qt{von oben beschränkt}, falls es ein $s\in \real$ mit $x \leq s \quad \forall x \in X$ gibt. Ein solches $s$ nennet man in diesem Fall eine \qt{obere Schranke} von $X$.
+
+  $X$ heisst \qt{nach unten beschränkt}, falls es ein falls es ein $i\in \real$ mit $x \geq i \quad \forall x \in X$ gibt. Ein solches $i$ nennt man analog eine \qt{untere Schranke} von $X$.
+
+  $X$ heisst \qt{beschränkt}, falls sie von oben und unten beschränkt ist.
+\end{mydef}
+
+\begin{thm}[Supremum]
+  \label{thm: supremum}
+  Sei $X \subseteq \real$ eine von oben beschränkte, nicht-leere Teilmenge. Dann gibt es eine \qt{kleinste obere Schranke} von $X$, die auch das \qt{Supremum} $\operatorname{sup}(X)$ von $X$ genannt wird. $s_0 = \operatorname{sup}(X)$ erfüllt folgende Eigenschaften:
+  \begin{enumerate}
+    \item \emph{$s_0$ ist eine obere Schranke:} $\forall x \in X: x \leq s_0$.
+    \item \emph{$s_0$ ist kleiner gleich jeder oberen Schranke:} $\forall s \in \real: \big((\forall x \in X: x \leq s) \implies s_0 \leq s\big)$
+    \item \emph{Kleinere Zahlen sind keine oberen Schranken:} $\forall \epsilon > 0 \; \exists x \in X: x > s_0-\epsilon.$
+  \end{enumerate}
+
+  Eigenschaften (b) und (c) sind äquivalent. Falls das Maximum $x_0 = \max(X)$ existiert, dann ist $\max(X) = \sup(X)$. Denn aus $x_0 \in X$ folgt $x_0 \leq s$ für jede obere Schranke $s$ von $X$. Falls $\sup(X) \in X$, dann ist $\sup(X) = \max(X)$, da das Supremum eine obere Schranke ist.
+\end{thm}
+
+\mce{61}
+\begin{ex}[Existenz des Infimums]
+  Machen Sie das gleiche wie in \ref{thm: supremum}. Gehen Sie entweder analog vor, oder das Supremum der  Teilmenge
+  \[
+    -X :\equiv \{ -x \mid x \in X \}
+  \]
+
+  für eine von unten beschränkte, nicht-leere Teilmenge $X \subseteq \real$ betrachten.
+\end{ex}
+
+\begin{mydef-non}[Notation]
+  Die Notation lässt sich verallgemeinern. Sei $x \in \real$ und $A,B \subseteq \real$. Wir definieren:
+  \[
+  \begin{aligned}
+    -X &:\equiv \{ -x \mid x \in X \} \\
+    x+A &:\equiv \{ x+a \mid a \in A \} \\
+    A + B &:\equiv \{a + b \mid a \in A, b \in B \} \\
+    xA &:\equiv \{xa \mid a \in A \} \\
+    AB &:\equiv \{ab \mid a \in A, b \in B \}
+  \end{aligned}
+  \]
+
+  Es gilt beispielsweise $x+A = \{x\}+A, xA=\{x\}A$ oder auch $[a,b]+[c,d] = [a+c, b+d] \quad \forall a,b,c,d \in \real$ mit $a \leq b$ und $c \leq d$.
+\end{mydef-non}
+
+\begin{thm}[Supremum unter Streckung]
+  Sei $A \subseteq \real$, $A \neq \varnothing$ und sei $c > 0$. Dann ist $cA$ von oben beschränkt und es gilt $\sup (cA) = c  \sup (A).$
+\end{thm}
+\begin{prf}
+  Sei $s:\equiv\sup(A)$ und $c>0$. Dann gilt $a \leq s \quad \forall a \in A$ wie auch $ca \leq cs$. Da jedes Element von $cA$ von der Form $ca$ für $a \in A$ ist, erhalten wir, dass $cs$ eine obere Schranke von $cA$ ist. $cA$ ist somit von oben beschränkt.
+
+  Sei $\epsilon > 0$. $\implies \exists a \in A: a > s-\frac{\epsilon}{c}$. Somit gilt auch $ca > cs-\epsilon$. Dies charakterisiert das Supremum von $cA$, weil jedes Element von der Form $ca$ ist und wir erhalten $\sup(cA) = cs = c\sup(A)$.
+\end{prf}
+
+\begin{thm}[Supremum unter Summen]
+  Seien $A,B \subset \real$, zwei nicht-leere, von oben beschränkte Teilmengen von $\real$. Dann ist $A+B$ von oben beschränkt und es gilt
+  \[
+    \sup(A+B) = \sup(A) + \sup(B).
+  \]
+\end{thm}
+\begin{prf}
+  Wir definieren $s_A :\equiv \sup(A)$ und $s_B :\equiv \sup(B)$. Dann gilt $a \leq s_A$ und $b \leq s_B$ $\quad \forall a \in A, b \in B$. Dies impliziert
+  \[
+    a+b \leq s_A + s_B \quad \forall a \in A, b\in B.
+  \]
+
+  Somit ist $s_A + s_B$ eine obere Schranke von $A+B$, weil alle Elemente von $A+B$ von der Form $a+b$ sind.
+
+  Sei $\epsilon > 0$. Dann existiert ein $a \in A$ mit $a > s_A - \frac{\epsilon}{2}$ und ein $b \in B$ mit $b > s_B - \frac{\epsilon}{2}$. Dies impliziert
+  \[
+    a+b > (s_A + s_B) - \epsilon,
+  \]
+
+  und somit
+  \[
+    \sup(A+B) = s_A + s_B = \sup(A) + \sup(B).
+  \]
+
+  \vspace{-\baselineskip}
+\end{prf}
+
+\subsection{Uneigentliche Werte, Suprema und Infima}
+

@@ -1,0 +1,179 @@
+\section{Die reelen Zahlen}
+
+\subsection{Die Axiome der reele Zahlen}
+
+\begin{mydef}[reelle Zahlen, $\real$]
+  Die Menge der reellen Zahlen $\real$ besitzt eine \qt{Addition}
+  \[
+    +: \real \times \real \to \real, (x,y) \mapsto x+y,
+  \]
+  und eine \qt{Multiplikation}, und eine Relation $\leq$ auf $\real$, die wir \qt{kleiner gleich} nennen.
+  \[
+    \cdot: \real \times \real \to \real, (x,y) \mapsto x\cdot y.
+  \]
+\end{mydef}
+
+\subsubsection{Körperaxiome}
+
+Die Addition erfüllt folgende Eigenschaften
+\begin{enumerate}[label=\textbf{(\alph*)}]
+  \item Nullelement: $\exists 0 \in \real \; \forall x \in \real: x + 0 = 0 + x = x$
+  \item Additives Inverses: $\forall x \in \real \; \exists (-x) \in \real: x + (-x) = (-x) + x = 0$
+  \item Assoziativgesetz: $\forall x,y,z \in \real: (x+y)+z = x+(y+z)$
+  \item Kommutativgesetz: $\forall x,y \in \real: x+y = y + x$
+\end{enumerate}
+$\real$ wird gemeinsam mit der Verknüpfung $+: \real \times \real \to \real$ auch \emph{kommutative} oder \emph{abelsche Gruppe} genannt.
+
+\emph{Erste Folgerungen.}
+\begin{enumerate}
+  \item Das Nullelement ist eindeutig. $0_1 = 0_1 + 0_2 = 0_2$.
+  \item Das Negative $-x$ ist für jedes $x \in \real$ eindeutig bestimmt. Falls für $x,y,z$ die gleichung $0=x+y=x+z$ gilt, dann gilt $y=y+0=y+(x+z)=(y+x)+z=(x+y)+z=0+z=z.$
+  \item Es gilt $-(-x) = x \quad \forall x \in \real$. Denn das additive Inverse ist eindeutig und weil $(-x) + x = 0$ gilt, gilt auch $-(-x) = x$.
+  \item \qt{Additives Kürzen}: $x + y = x + z \implies y=z \quad \forall x,y,z \in \real$.
+  \[
+    \begin{aligned}
+      y = ((-x)+x)+y &= (-x)+(x+y) \\
+      &=(-x)+(x+z) = ((-x)+x)+z = z
+    \end{aligned}
+  \]
+\end{enumerate}
+
+\begin{imp-ex}
+  Zeigen Sie die folgenden Regeln.
+  \begin{enumerate}
+    \item $-0=0$
+    \item $-(x+y)=(-x)+(-y)  \quad \forall x,y \in \real$
+
+    Wir bezeichnen $(-x)+(-y)$ als $-x-y$.
+    \item $-(x-y)=-x+y \quad \forall x,y \in \real$
+  \end{enumerate}
+\end{imp-ex}
+
+Die Multiplikation erfüllt folgende Eigenschaften
+\begin{enumerate}
+  \item Einselemnt: $\exists 1 \in \real - \{0\} \; \forall x \in \real: x \cdot 1 = 1 \cdot x = x$
+  \item Multiplikative Inverse: $\forall x \in \real - \{0\} \; \exists (x^{-1}) \in \real: x \cdot (x^{-1}) = (x^{-1})x = 1$
+  \item  Assoziativgesetz: $\forall x,y,z \in \real: x \cdot (y \cdot z) = (x \cdot y) \cdot z$
+  \item Kommutativgesetz: $\forall x,y \in \real: x \cdot y = y \cdot x$
+  \item \emph{Kompatibilität von $+$ und $-$} \\
+  Distributivgesetz: $(x+y)\cdot z = (x \cdot z) + (y \cdot z) \quad \forall x,y,z \in \real$
+\end{enumerate}
+
+\emph{Folgerungen}
+\begin{enumerate}
+  \item $0 = 0x = x0 \quad \forall x \in \real$
+  \item $(-1)x = -x \quad \forall x \in \real$, weil $x + (-1) x = 1x + (-1)x = (1+(-1))x = 0x = 0$. Man sieht, dass $(-1)x$ das additive Inverse von $x$ ist. Desshalb gilt $(-1)x = -x$.
+  \item \qt{Multiplikatives Kürzen} ist erlaubt: Seit $x \in \real - \{0\}, yz \in \real$ und es gilt $xy=xz$. Dann gilt $y=z$. Weil
+  \[
+  \begin{aligned}
+   y=1y=((x^{-1})x)y&=(x^{-1})(xy)\\
+   &=(x^{-1})(xz)=((x^{-1})x)z=1z = z
+  \end{aligned}
+  \]
+  \item Es gibt keine \qt{Nullteiler}: Falls $xy=0$ für zwei Elemente $x,y \in \real$, dann ist $x=0$ oder $y=0$. Denn falls $x \neq 0$, dann gilt $x \cdot 0 = 0$ und $x \cdot y = 0$. Deswegen ist $y=0$.
+  \item Das Einselement ist durch die Eigenschaft in Axiom (e) eindeutig bestimmt.
+  \item Das (mulötiplikatives) Inverse $x^{-1} \in \real - {0}$  ist für jedes Element $x \in \real - \{0\}$ eindeutig durch $x \cdot x^{-1} = 1$ bestimmt.
+  \item $(x^{-1})^{-1} = x$.
+\end{enumerate}
+
+\begin{imp-ex}
+  Seien $x,y,z \in \real$.
+  \begin{enumerate}
+    \item Zeigen Sie, dass die Identität $(-x)(-y)=xy$ gilt. Überprüfen Sie auch, dass $-x \in \real - \{0\}$ und $(-x)^{-1} = -(x^{-1})$ gilt, falls $x \in \real-{0}$ ist.
+    \item Zeigen Sie, dass das Distributivgesetz für die Subtraktion $x(y-z) = (xy)-xz$ gilt.
+  \end{enumerate}
+\end{imp-ex}
+
+Man verwendet die Schreibweise des \qt{Quotienten} $frac{x}{y}=xy^{-1}$ für alle \qt{Zähler} $x \in \real$ under \qt{Nenner} $y \in \real$. Die Inverse $\frac{1}{y}=y^{-1}$ von $y \in \real-\{0\}$ nennen wir den \qt{reziproken Wert} oder den \qt{Kehrwert} von $y$.
+
+\begin{imp-ex} [Rechenregel für Quotienten]
+  \phantom{.} \\
+  \begin{enumerate}
+    \item $\tfrac{x}{y}=\tfrac{z}{w} \iff xw = yz \quad \forall x,z \in \real \myand \forall y,w \in \real^{\times}$.
+    \item $\tfrac{x}{y} \cdot \tfrac{z}{w} = \tfrac{xz}{yw} \quad \forall x,z \in \real \myand \forall y,w \in \real^{\times}$
+    \item $\dfrac{\tfrac{x}{y}}{\tfrac{z}{w}} = \tfrac{xw}{yz} \quad \forall x \in \real \myand \forall y,z,w \in \real^{\times}$.
+    \item $\tfrac{x}{y} + \tfrac{z}{w} = \tfrac{xw + yz}{yw} \quad \forall x,z \in \real$ und $\forall y,w \in \real^{\times}$
+  \end{enumerate}
+\end{imp-ex}
+
+\begin{imp-ex}
+  Sei $a^2 :\equiv a \cdot a \quad \forall a \in \real$. Zeigen Sie die Gleichungen.
+  \begin{itemize}
+    \item $(a+b)^2 = a^2 + 2ab + b^2$
+    \item $(a-b)^2 = a^2 -2ab + b^2$
+    \item $(a+b)(a-b)=a^2-b^2$
+  \end{itemize}
+
+\end{imp-ex}
+
+\subsubsection{Angeordnete Körper}
+\textbf{Axiome (Anordnung).} Die Relation $\leq$ auf $\real$ erfüllt die folgenden vier Axiome. $\forall x,y,z \in \real$:
+\begin{enumerate}
+  \item Reflexivität: $x \leq x$.
+  \item Antisymmetrie: $x \leq y$ und $y \leq x \implies x = y$.
+  \item Transitivität: $x \leq y$ und $y \leq z \implies x \leq z$.
+  \item Linearität: $x \leq y$ oder $y \leq x$.
+  \item $\leq$ und $+$: $x \leq y \implies x+z \leq y+z$
+  \item $\leq$ und $\cdot$: $(0 \leq x$ und $0 \leq y)$ $\implies$ $0\leq xy$.
+\end{enumerate}
+
+Die Axiome (a) - (c) sind die Axiome einer \qt{(partiellen) Ordnung} und zusammen mit Axiom (c) bilden sie die Axiome einer \qt{linearen} (oder auch \qt{totalen}) \qt{Ordnung}.
+
+\begin{mydef-non}
+  Weiter definieren wir $x < y$ durch $(x \leq y$ und $x \neq y)$ und sagen \qt{$x$ ist (echt) kleiner als $y$}.
+\end{mydef-non}
+
+\begin{mydef-non}
+  $x > y$ wird definiert als $y < x$.
+\end{mydef-non}
+
+\textbf{Folgerungen.} Das Hinzufügen der Anordnungsaxiome hat folgende Konsequenzen. $\forall x,y,z,w \in \real:$
+\begin{enumerate}
+  \item Trichotomie: Es gilt entweder $x < y, x=y$ oder $x > y$.
+  \item $x < y$ und $y \leq z$ $\implies$ $x < z$.
+  \item $x \leq y$ und $z \leq w$ $\implies$ $x+z \leq y+w$.
+  \item $y \leq z \iff 0 \leq z-y$.
+  \item $x \geq 0 \iff -x \leq 0$.
+  \item $x^2 \geq 0$ und $x^2>0$, falls $x \neq 0$.
+  \item $0 < 1$.
+  \item $0 \leq x$ und $y \leq z$ $\implies xz \leq xz$.
+  \item $x \leq 0$ und $y \geq z$ $\implies xy \leq xz$.
+  \item $0 < x \leq y$ $\implies$ $0 < x^{-1} \leq y^{-1}$.
+  \item $0 \leq x \leq y$ und $0 \leq z \leq w$ $\implies$ $0 \leq xz \leq yw$.
+  \item $x + y \leq x + z$ $\implies$ $y \leq z$. (Man darf $x$ streichen)
+  \item $xy \leq xz$ $\implies$ $y \leq z$. (Man darf $x$ streichen)
+\end{enumerate}
+
+\subsubsection{Das Vollständigkeitsaxiom}
+
+\[
+  \begin{aligned}
+    &\forall X,Y \subseteq \real: \Big( \left( X \neq \varnothing \myand Y = \varnothing \myand \forall x \in X \; \forall y \in Y: x \leq y \right) \\
+    &\qquad \implies \left(\exists c \in \real \; \forall x \in X \; \forall y \in Y: x \leq c \leq y \right) \Big)
+  \end{aligned}
+\]
+
+\subsubsection{Eine erste Anwendung der Vollständigkeit}
+
+\begin{imp-ex}[Existenz der Wurzelfunktion]
+  \phantom{.}\\
+  $\forall x,y,a \in \real_{\geq0}$
+\begin{enumerate}
+  \item $x<y \iff x^2 < y^2$.
+  \item Eindeutigkeit: $\exists! c \in \real_{\geq 0}: c^2 = a$.
+  \item Für eine reele Zahl $a>0$ erfüllen die Teilmengen \[
+  X :\equiv \{x \in \real_{\geq 0} \, \mid \, x^2 < a \}, \quad Y :\equiv \{y \in \real_{\geq 0} \, \mid \, y^2 > a \}
+  \]
+
+  die Vorraussetzungen des Vollsändigkeitsaxiom.
+
+\begin{mydef-non}
+    Wir bezeichnen für jedes $a \geq 0$ die durch $c^2 = a$ und $c \geq 0$ eindeutig bestimmte reelle Zahl als $c=\sqrt{a}$ und sprechen von der \qt{Wurzel von} $a$.
+\end{mydef-non}
+
+  \item Wachsend: $x < y \iff \sqrt{x} < \sqrt{y}$.
+  \item Bijektion: Die Würzelfunktion ist von $\real_{\geq 0}$ nach $\real_{\geq 0}$ bijektiv.
+  \item Multiplikativität: $\sqrt{xy} = \sqrt{x}\sqrt{y}$.
+  \item Zwei Lösungen: Für jedes $a>0$ gibt es genau zwei Lösungen der Gleichung $x^2 = a$ mit $x \in \real$.
+\end{enumerate}
+\end{imp-ex}

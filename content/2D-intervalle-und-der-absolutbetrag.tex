@@ -1,0 +1,170 @@
+\section{Intervalle und der Absolutbetrag}
+
+\mce{41}
+\begin{mydef}[Intervalle]
+  Seien $a,b \in \real$. Dann wird das
+  \begin{itemize}
+    \item \emph{abgeschlossene Intervall} $[a,b]$ durch
+    $[a,b] :\equiv \{ x \in \real \mid a \leq x \leq b \}$, das
+    \item \emph{offene Intervall} $[a,b)$ durch
+    $[a,b) :\equiv \{x \in \real \mid a \leq x < b \}$, und das
+    \item \emph{(rechts) halboffne Intervall} $(a,b]$ durch
+    $(a,b] :\equiv \{ x \in \real \mid a < x \leq b \}$
+  \end{itemize}
+  definiert. Wenn das Intervall nicht-leer ist, dann wird $a$ der \qt{linke Endpunkt}, $b$ der \qt{rechte Endpunkt}, und $b-a$ die \qt{Länge des Intervalls} genannt. Die Intervalle $(a,b]$, $[a,b)$, $(a,b)$ sind für genau dann nicht-leer, wenn $a<b$ ist. Das Intervall $[a,b]$ ist genau dann nicht-leer, wenn $a\leq b$ ist. Die genannten Intervalle werden auch \qt{beschränkte Intervalle} genannt.
+\end{mydef}
+
+\begin{mydef}[Unbeschränkte Intervalle]
+  Für $a,b \in \real$ definieren wir die \qt{unbeschränkten abgeschossenen Intervalle}
+  \[
+    \begin{aligned}
+      [a, \infty) &:\equiv \real_{\geq a} :\equiv \{x \in \real \mid a \leq x \} \\
+      (-\infty, b) &:\equiv \real_{\leq b} :\equiv \{ x \in \real \mid x \leq b \}
+    \end{aligned}
+  \]
+
+  und die \qt{unbeschränkten offenen Intervalle}
+  \[
+    \begin{aligned}
+      (a, \infty) &:\equiv \real_{>a} :\equiv \{ x \in \real \mid a < x \} \\
+      (-\infty, b) &:\equiv \real_{<b} :\equiv \{ x \in \real \mid x < b \} \\
+      (-\infty, \infty) &:\equiv \real
+    \end{aligned}
+  \]
+\end{mydef}
+
+\begin{mydef}[Umgebung eines Punktes] Sei $x \in \real$. Eine Menge, die ein offenes Intervall enthält, in dem $x$ liegt, wird auch eine \qt{Umgebung} oder \qt{Nachbarschaft} von $x$ genannt. Für ein $\delta > 0$ wird das offene Intervall $(x-\delta, x + \delta)$ die \qt{$\delta$-Umgebung} von $x$ genannt.
+
+Beispielsweise wäre also $\rat \cup [-1,1]$ eine Umgebung von $0 \in \real$, weil sie das offene Intervall $(-1,1)$ und den Punkt $0$ enthält. Die Umgebung selbst kann demnach auch abgeschlossen sein.
+
+Falls ein $y \in \real$ in einer $\delta$-Umgebung von $x$ ist, so sagt man auch, dass $y$ \qt{$\delta$-nahe} an $x$ ist.
+
+Definition durch Absolutbetrag: Für ein $\delta > 0$ und ein $x \in \real$ ist die $\delta$-Umgebung von $x$ durch $\{y \in \real \mid \abs{x-y} < \delta \}$ gegeben. $\abs{x-y} = \abs{y-x}$ kann als \qt{Abstand} von $x$ zu $y$ interpretiert werden.
+
+\end{mydef}
+
+\begin{ex}[Verhalten von Intervallen unter Durchscnitt und Vereinigung]
+  \phantom{.}
+  \begin{enumerate}
+    \item Zeigen Sie, dass ein endlicher Schnitt $\cap _{k=1}^{n}I_k$ von Intervallen $I_1, \dots, I_n$ wieder ein Intervall ist, wenn die leere Menge auch als Intervall zugelassen ist. Kann man die Endpunkte eines nicht-leeren Durchschnitts mittels der Endpunkte der ursprünglichen Intervalle beschreiben?
+    \item Wann ist die Vereinigung von zwei Intervallen wieder ein Intervall? Was geschieht in diesem Fall, wenn man zwei Intervalle des selben Typs (offen, abgeschlossen, links halboffen, rechs halboffen) vereinigt?
+  \end{enumerate}
+\end{ex}
+
+\subsection{Der Absolutbetrag auf den reellen Zahlen}
+\begin{mydef}[Absolutbetrag] Der \qt{Absolutbetrag} ist due Funktion
+  \[| \cdot | : \real \to \real, \quad x \mapsto |x| :\equiv
+  \begin{cases}
+    x & \text{ falls } x \geq 0 \\
+    -x & \text{ falls } x \leq 0
+  \end{cases}\]
+\end{mydef}
+
+\textbf{Folgerungen.} $\forall x, y \in \real$ gilt
+\begin{enumerate}
+  \item Es ist $|x| \geq 0$ und $|x| = 0 \iff x=0$. Dies folgt aus der Trichtomie der Reellen Zahlen:\\
+  Für $x=0$ gilt $|x| = 0$, für $x>0$ gilt $|x|=x > 0$, und für $x<0$ folgt $|x| = -x > 0$.
+  \item $|-x| = |x|$
+  \item $|xy| = |x||y|$. Beweis durch Fallunterscheidung.
+  \item Für $x\neq 0$ gilt $\left| \tfrac{1}{x} \right | = \tfrac{1}{|x|}$. Beweis: Aus (c) folgt $\left| \tfrac{1}{x} \right | {|x|} = \left| \tfrac{1}{x} x \right |  = 1$.
+  \item $\abs{x} \leq y$ $\iff$ $-y \leq x  \leq y$.
+  \begin{prf}
+    \qt{$\Rightarrow$ Richtung}: Angenommen $\abs{x} \leq y$. Falls $x \geq 0$, dann gilt $-y \leq 0 \leq x = \abs{x} \leq y$. Falls $x < 0$, dann ist $-y \leq -\abs{x} = x < 0 \leq y$ und damit wiederum $-y \leq x \leq y$. \\
+    \qt{$\Leftarrow$ Rightung:} Wir bemerken, dass $-y \leq x \leq y$ auch $-y \leq -x \leq y$ und somit auf jeden Fall $\abs{x} \leq y$ impliziert.
+  \end{prf}
+  \item $\abs{x} < y \iff -y < x < y$.
+  \item \emph{Dreiecksungleichung:} $\abs{x+y} \leq \abs{x} + \abs{y}.$
+  \begin{prf}
+    Wir addieren die Ungleichungen $-\abs{x} \leq x \leq \abs{x}$ und $-\abs{y} \leq y \leq \abs{y}$ und erhalten
+    \[
+      -(\abs{x} + \abs{y}) \leq x+y \leq \abs{x} + \abs{y}
+    \]
+
+    Woraus nach Eigenschaft (e) die Gleichung $\abs{x+y} \leq \abs{\abs{x} + \abs{y}} = \abs{x} + \abs{y}$ folgt.
+  \end{prf}
+  \item \emph{Umgekehrte Dreiecksungleichung:} $\abs{\abs{x} - \abs{y}} \leq \abs{x-y}$.
+\end{enumerate}
+
+\begin{ex}
+  Wann gilt Gleichheit in der Dreicecksungleichung oder umgekehrten Dreiecksungleichung?
+\end{ex}
+
+\begin{mydef-non}[Vorzeichen/Signum]
+  $\forall x \in \real:$ $x = \operatorname{sgn}(x) \abs{x}$, weobei $\operatorname{sgn}(x)$ das \qt{Vorzeichen} (oder \qt{Signum}) von $x$ ist, welches durch
+\[
+  \operatorname{sgn}: \real \to \{-1,0,1\}, \quad x \mapsto \begin{cases}
+    1  & \text{ falls } x > 0 \\
+    0  & \text{ falls } x = 0 \\
+    -1 & \text{ falls } x < 0
+  \end{cases}
+\]
+
+definiert ist.
+\end{mydef-non}
+
+\begin{ex}[Absolutbetrag und Quadratwurzel] $\forall x \in \real: x^2 = \abs{x}^2$ und $\sqrt{x^2} = \abs{x}$.
+\end{ex}
+
+\begin{mydef}[Offene und abgeschlossene Teilmengen]
+  Eine Teilmenge $U \subseteq \real$ heisst \qt{offen} (in $\real$), wenn für jedes $x \in U$ ein $\epsilon >0$ exisitiert mit
+  \[
+    \{ y \in \real \mid \abs{y-x} < \epsilon \} = (x-\epsilon, x + \epsilon) \subseteq U.
+  \]
+
+  Eine Teilmenge $A \subseteq \real$ heisst \qt{abgeschlossen} (in $\real$), wenn ihr Komplement $\real \backslash A$ offen ist.
+\end{mydef}
+
+\begin{ex}[Offene Intervalle]
+  Zeigen Sie, dass eine Teilmene $U \subseteq \real$ genau dann offen ist, wenn $\forall x \in U$ ein offenenes Intervall $I$ mit $x \in I$ und $I \subseteq U$ existiert. Schliessen Sie, dass die offenen (respektive abgeschlossenen) Intervalle auch im Sinne der obigen Definition offen (respektive abgeschlossen) sind.
+\end{ex}
+
+\begin{ex}
+  Welche der folgenden Teilmengen von $\real$ sind jeweils offen, abgeschlossen oder weder noch?
+  \begin{itemize}
+    \item Die Teilmengen $\varnothing, \nat, \integer, \real$.
+    \item Die Teilmengen $[0,1), (0,1]$ und $(0,1) \cup (2,3)$
+  \end{itemize}
+\end{ex}
+
+\section{Der Absolutbetrag auf den komplexen Zahlen}
+
+\begin{mydef}[Absolutbetrag]
+  Der \qt{Absolutbetrag} auf $\compl$ ist gegeben durch
+  \[
+    \abs{z} = \abs{x + yi} :\equiv \sqrt{x^2 + y^2} = \sqrt{z \overline z} $ für $z=x+yi \in \compl.
+  \]
+
+  und stimmt mit dem Absolutbetrag auf $\real$ überein, da für $x \in \real: \sqrt{x \overline x} = \sqrt{x^2} = \abs{x}$.
+\end{mydef}
+
+\textbf{Eigenschaften des Absolutbetrags auf $\compl$.}
+$\forall z,w \in \compl$ gilt
+\begin{enumerate}
+  \item \emph{Definitheit:} $\abs{z} > 0$ und $\abs{z}=0$ nur dann, wenn $z = 0$.
+  \item \emph{Multiplikativität:} $\abs{zw} = \abs{z}\abs{w}$.
+  \item \emph{Dreiecksungleichung:} $\abs{z+w} \leq \abs{z} + \abs{w}$.
+  \item \emph{Umgekehrte Dreiecksungleichung:} $\abs{\abs{z}-\abs{w}} \leq \abs{z-w}$.
+\end{enumerate}
+
+\mce{52}
+\begin{mydef}[Offene Bälle]
+  Der \qt{offene Ball} mit Radius $r > 0$ um einen Punkt $z \in \compl$ ist die Menge
+  \[
+    B_r :\equiv \{ w \in \compl \mid \abs{z-w} <r \}.
+  \]
+\end{mydef}
+
+\begin{imp-ex}[Durchschnitt von offenen Bällen] Seien $z_1, z_2 \in \compl, r_1 > 0$ und $r_2 > 0$. Für jeden Punkt $z \in B_{r_1}(z_1) \cup B_{r_2}(z_2)$ existiert ein Radius $r>0$, so dass
+\[
+  B_r(z) \subseteq B_{r_1}(z_1) \cup B_{r_2}(z_2).
+\]
+\end{imp-ex}
+
+\begin{mydef}[Offene und abgeschlossene Teilmenge von $\compl$] Eine Teilmenge $U \subseteq \compl$ heisst \qt{offen} (in $\compl$), wenn zu jedem Punkt in $U$ ein offener Ball um diesen Punkt existiert, der in $U$ enthalten ist.
+\[
+  \forall z \in U \subseteq \compl \; \exists r>0: B_r(z) \subseteq U.
+\]
+
+Eine Teilmenge $A \subseteq \compl$ heisst \qt{abgeschlossen} (in $\compl$), falls ihr Komplement $\compl \backslash A$ offen ist.
+\end{mydef}
+

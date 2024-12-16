@@ -1,11 +1,15 @@
+% configurations for enumerates
+\setlist[enumerate]{itemsep=\itemsep,topsep=\itemsep}
+\setlist[enumerate,1]{label=\textbf{(\alph*)}}
+
 % only displays equation numbers if they are referenced
 \mathtoolsset{showonlyrefs,showmanualtags}
 
-\DeclareEmphSequence{\scshape}
+\DeclareEmphSequence{\scshape\bfseries}
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0.2em}
+\setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
@@ -13,8 +17,6 @@
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
 \titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
 \titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
-%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
-%\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
 %For item, enumerate, description, lists
 \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
@@ -26,25 +28,25 @@
 
 % new mdframed style that places the edges at the corners (.675em):
 \mdfdefinestyle{proof-style}{
-  skipabove         = 0.2em,% .5\baselineskip ,
+  skipabove         = 0.1em,% .5\baselineskip ,
   skipbelow         = 0,%.5\baselineskip ,
   leftmargin        = 0.4em ,
   rightmargin       = 0.4em ,
   innermargin       = 0pt ,
-  innertopmargin    = 0.4em, %0.6 %.675em ,
+  innertopmargin    = 0.5em, %0.6 %.675em ,
   innerleftmargin   = 0.4em, %.675em ,
   innerrightmargin  = 0.4em,
-  innerbottommargin = 0.2em, %.675em +3pt,
+  innerbottommargin = 0.3em, %.675em +3pt,
   hidealllines      = true,
   singleextra       = {
-    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
-    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
   },
   firstextra        = {
-    \draw (P-|O) -- ++(0,-.7em) (P-|O) -- ++(.7em,0) ;
+    \draw [thick] (P-|O) -- ++(0,-1.2em) (P-|O) -- ++(1.2em,0) ;
   },
   secondextra       = {
-    \draw (O) -- ++(0,.7em) (O) -- ++(.7em,0) ;
+    \draw [thick] (O) -- ++(0,1.2em) (O) -- ++(1.2em,0) ;
   },
 }
 
@@ -57,22 +59,22 @@
   %    \leavevmode\hbox to.77778em{\rule{.675em}{.675em}}}
 %\let\qedsymbol\closedbox
 
-\renewenvironment{proof}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
-\renewenvironment{prf}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
+\renewenvironment{prf}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
+\renewenvironment{proof}{{\textbf{\scshape \slshape Proof:}}}{\hfill $\qedsymbol$}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
 %\surroundwithmdframed[style=proof]{xmpl}
 
 % BEGIN custom therem and proof environments ***************
 \newtheoremstyle{mytheoremstyle} % name
-{0.4em}                       % Space above {\topsep} 
+{0.4em}                       % Space above {\topsep}
 {.2em}                        % Space below
 {}                            % Body font
 {0em}                         % Indent amount
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
 {\textbf{:\,}}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont{\;}\thmnote{({\itshape#3})}}}} 
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont{}\thmnote{\;({\itshape#3})}}}}
 % Theorem head spec (can be left empty, meaning ‘normal’)
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
@@ -94,11 +96,19 @@
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem*{lemma-non}{Lemma}
 
+\newtheorem{ex}[thm]{Übung}
+\newtheorem*{ex-non}{Übung}
+
 \newtheorem{imp-ex}[thm]{Wichtige Übung}
 \newtheorem*{imp-ex-non}{Wichtige Übung}
 
 \newtheorem{xrcs}{Exercise}
 \newtheorem*{xrcs-non}{Exercise}
+
+% operators
+%\newcommand{\max}{\operatorname{max}}
+%\newcommand{\sup}{\operatorname{sup}}
+%\newcommand{\inf}{\operatorname{inf}}
 
 % quotes
 \newcommand\qt[1]{\textit{``#1''}}
@@ -120,7 +130,7 @@
 \newcommand\dz{\, dz}
 \newcommand\du{\, du}
 
-% SUMS 
+% SUMS
 \newcommand\sumkinfty{\sum_{k=1}^{\infty}}
 \newcommand\sumkn{\sum_{k=1}^{n}}
 \newcommand\sumknplone{\sum_{k=1}^{n+1}}
@@ -197,11 +207,15 @@
 %\newcommand{\mmatrix}{\mathcal{M}}
 
 % Natural numbers, integers, real numbers, complex numbers:
+\newcommand{\rat}{\mathbb{Q}}
 \newcommand{\nat}{\mathbb{N}}
-\newcommand{\integer}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\compl}{\mathbb{C}}
 \newcommand{\myF}{\mathbb{F}}
+
+% Absolute value:
+\newcommand{\abs}[1]{\left|#1\right|}
 
 % Polynomial symbol:
 \newcommand{\polyn}{\mathcal{P}}
@@ -276,7 +290,20 @@
 \setlength{\belowdisplayskip}{3pt}
 
 \setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0.2em}
+\setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 \setlength{\jot}{0pt}
+
+
+% BEGIN custom chapter format ******************************
+\renewcommand*{\thechapter}{\arabic{chapter}}
+\renewcommand*{\thesection}{\arabic{chapter}\Alph{section}}
+\renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
+
+\titleformat{\chapter}[block]
+{\bfseries\scshape}{\relscale{1.1}#1 {\footnotesize (Kapitel \thechapter)}}{0.5em}{\large}
+\titleformat{\section}{\bfseries\scshape}{}{0em}{{\relscale{1.1}#1} {\footnotesize(Abschnitt  \thesection)}} %Large
+\titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Unter-Abschnitt \thesubsection)}} %large
+\titleformat{\subsubsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Unter-Unter-Abschnitt \thesubsection)}} %large
+% END custom chapter format ********************************
