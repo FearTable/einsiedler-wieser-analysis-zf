@@ -3,6 +3,7 @@
 \subsection{Das Archimedische Prinzip}
 
 \begin{thm}[Das Archimedische Prinzip]
+  \label{thm: das archimedische prinzip}
   \phantom{.} \\
   Es gelten folgende Aussagen:
   \begin{enumerate}
@@ -11,4 +12,193 @@
     \item $\forall \epsilon > 0 \; \exists n \in \nat: \frac{1}{n} < \epsilon$.
   \end{enumerate}
 \end{thm}
+
 Der \qt{gebrochene Anteil} (oder auch \qt{Nachkommaanteil}) ist $\{ x\} :\equiv x - \lfloor x \rfloor \in [0,1)$. Wir erhalten eine Funktion $x \in \real \mapsto \{ x\} \in [0, 1)$ mit $x=\lfloor x \rfloor + \{ x\} \quad \forall x \in \real$.
+
+\begin{prf}
+  Sei $E \subset \integer$, $E \neq \varnothing$ eine von oben beschränkte Teilmenge. Da auch $E \subseteq \real$, folgt aus \ref{thm: supremum} $\exists s_0 = \sup (E)$. Nach \ref{thm: supremum} (c) $\exists n_0 \in E: s_0 \geq n_0 > s-1$. Wobei hier $1$ die Rolle von $\epsilon$ übernommen hat. Es folgt $s_0 < n_0+1$. Somit gilt $\forall m \in E: m \leq s_0 < n_0+1$ und $m \leq n_0$. Daher ist $n_0$ das Maximum von $E$ und Aussage (a) ist bewiesen.
+
+  \textbf{Zu (b):} Sei $x \in \real, x \geq 0$. Dann ist $E :\equiv \{n \in \integer \mid n\leq x\}$ eine von oben beschränkte, nicht leere Teilmenge, weil auf jeden Falls $0 \in E$. Nach (a) hat $E$ ein Maximum, das heisst, es gibt ein maximales $n_0 \in \integer$ mit $n_0 \leq x$. Daraus folgt $x < n_0+1$, weil falls $x \geq n_0+1$ gelten würde, $n_0$ nicht das maximale Elemennt wäre. Somit gilt $n_0 \leq x < n_0+1$ wie in (b).
+
+  Falls $x<0$ ist, dann können wir obigen Fall auf $-x$ anwenden und finden ein $l \in \integer$ mit
+  \[
+    l \leq -x < l +1
+  \]
+
+  Falls $x=-l$ wählen wir $k :\equiv l+1$ weil dann die Ungleichung $l = -x < l+1$ galt. Ansonsten wählen wir $k :\equiv l$ weil dann die Ungleichung $l < -x < l+1$ gegolten hat und wir erhalten somit für dieses gewählte $k \in \{ l, l+1\} \subseteq \integer$ die Gleichung
+  \[
+    k-1 < -x \leq k
+  \]
+  Für $n :\equiv -k \in \integer$ erhalten wir
+  \[
+  \begin{aligned}
+    -n-1 < -x \leq -n \\
+    n+1 > x \geq n
+  \end{aligned}
+  \]
+
+  Somit ist die Existenz einer solchen natürlichen Zahl $n$ auch für diesen Fall bewiesen.
+
+  \textbf{Eindeutigkeit:} Für den Beweis der Eindeutigkeit nehmen wir an, dass für $n_1, n_2 \in \integer$ die Ungleichungen $n_1 \leq x < n_1 + 1$ und $n_2 \leq x < n_2+1$ gelten. Daraus folgt $n_1 \leq x < n_2 + 1$ und auch $n_2 \leq x < n_1 + 1$ und damit $n_1 \leq n_2$ und $n_2 \leq n_1$. Desshalb ist $n_1 = n_2$.
+
+  \textbf{Zu (c):} Sei $\epsilon > 0$. Dann gilt auch $\frac{1}{\epsilon} > 0$. Nach Teil (b) gibt es ein $n \in \nat$ mit $n \leq \frac{1}{\epsilon} < n$. Für dieses $n$ gilt aber auch $\frac{1}{n} < \epsilon$, wie in (c) behauptet.
+\end{prf}
+
+\begin{ex}[Supremum von Bildmengen]
+  Sei $A\subseteq\real$ eine nichtleere Teilmenge von $\real$. Zeigen Sie, dass im Allgemeinen $\sup(\lfloor A \rfloor ) = \lfloor \sup(A) \rfloor$ nicht gilt. Hierbei ist $\lfloor A \rfloor$ das Bild von $A$ unter der Abrundungsfunktion.
+\end{ex}
+
+\mce{70}
+\begin{thm}[Dichtheit von $\rat$ in $\real$]
+  \label{thm: dichtheit von Q in R}
+  Zwischen zwei reellen Zahlen $a,b \in \real$ mit $a < b$ gibt es  ein $r \in \rat$ mit $a < r < b$.
+\end{thm}
+\begin{prf}
+  Nach \ref{thm: das archimedische prinzip} (c) $\exists m \in \integer$:
+  \[
+    \frac{1}{m} < b-a.
+  \]
+
+  Ebenso gibt es nach \ref{thm: das archimedische prinzip} (b) ein $n \in \integer$:
+  \[
+  \begin{aligned}
+    &n-1 \leq ma < n \mytext{oder äquivalenterweise }\\
+    &\tfrac{n}{m} - \tfrac{1}{m} = \tfrac{n-1}{m} \leq a < \tfrac{n}{m}.
+  \end{aligned}
+  \]
+
+  Dies führt zu
+  \[
+  a < \underbrace{\tfrac{n}{m}}_{r} \leq a + \tfrac{1}{m} < a + b- a = b
+  \]
+
+  womit die Behauptung bewiesen ist, wenn wir $r:\equiv \frac{n}{m}$ wählen.
+\end{prf}
+
+Dies bedeutet auch für jede Umgebung $I$, dass $I \cap \rat \neq \varnothing$
+
+\mce{71}
+\begin{ex}[Jede reelle Zahl ist ein Supremum einer Menge von rationalen Zahlen] Zeigen Sie, dass für jedes $x \in \real$ das Supremum von $\{ r \in \rat \mid r < x\}$ gerade $x$ ist.
+\end{ex}
+
+\subsection{Häufungspunkte einer Menge}
+\mce{73}
+\begin{mydef}[Häufungspunkte von Mengen]
+  Sei $A \subseteq \real$ und $x_0 \in \real$. Man nennt $x_0$ einen \qt{Häufungspunkt der Menge} $A$, falls $\forall \epsilon > 0 \; \exists a \in A: 0 < \abs{a-x_0} < \epsilon$.
+
+  In andern Worten: Es gibt für einen Häufungspunkt $x_0$ in jeder Umgebung abgesehen von $x_0$ Punkte in $A$. Hierbei muss $x_0$ nicht unbedingt in $A$ liegen. Die Menge $A$ kommt also ihren Häufungspunkten \qt{von aussen} beliebig nahe.
+\end{mydef}
+
+\begin{ex}[Endliche Mengen haben keine Häufungspunkte] Zeigen Sie, dass eine endliche Teilmenge $A \subseteq\real$ keine Häufungspunkte hat.
+\end{ex}
+
+\begin{thm}[Existenz von Häufungspunkten]
+  Sei $A \subseteq \real$ eine beschränkte unendliche Teilmenge. Dann existiert ein Häufungspunkt von $A$ in $\real$.
+\end{thm}
+\begin{prf}
+  Angenommen $m, M \in \real$ sind die beiden Schranken von $A$, so dass $A \subseteq [m,M]$. Wir definieren
+  \[
+    X :\equiv \{ x \in \real \mid \abs{A \cap (-\infty, x] } < \infty \}
+  \]
+
+  Dann ist $m \in X$ da $\abs{A \cap (-\infty,m]} \leq 1$.
+
+  Des Weiteren gilt $x < M \quad \forall x \in X$ also $m \notin X$, denn für ein hypothetisches $x \geq M$ wäre $A \cap (-\infty,x] = A \cap (-\infty, M] = A$ eine unendliche Menge mit $\abs{A \cap (-\infty,x]} = \abs{A \cap (-\infty, M]} = \abs{A}=\infty$. Wäre also zum Beispiel $A$ von der Gestalt $A=[b,c]$ oder $A = (a,b)$ für $b,c \in \real$ dann wäre $X=\{b \}$ eine Menge mit nur einem Element $b$.
+  Daher ist $X$ eine beschränkte, nicht-leere Teilmenge von $\real$, womit das Supremum $x_0 :\equiv \sup(X)$ nach \ref{thm: supremum} existiert. Also $X$ kann auch aus Elementen bestehn, die nicht in $A$ enthalten sind.
+
+  Sei nun $\epsilon>0$. Dann existiert ein $x\in X$ mit $x > x_0 - \epsilon$, was zeigt, dass $A\cap (-\infty, x_0 -\epsilon]$ eine endliche Menge ist, da
+  \[
+    A\cap (-\infty, x_0 -\epsilon] \subseteq A \cap (-\infty, x] \subseteq X.
+  \]
+
+  Des Weitern gilt $x_0 + \epsilon \notin X$. Damit gilt
+  $
+    \abs{A \cap [-\infty, x_0 + \epsilon]} = \infty.
+  $
+
+  Es folgt, dass
+  \[
+    A \cap (x_0 - \epsilon, x_0 + \epsilon] =
+    \underbrace{(A \cap (-\infty, x_0 + \epsilon])}_{\text{unendlich}} \, \backslash \,  \underbrace{(A \cap (-\infty, x_0 - \epsilon])}_{\text{endlich}}
+  \]
+
+  eine unendliche Menge ist und abgesehen von möglicherweise $x_0$ und
+  $x_0 + \epsilon$ noch weitere Punkte besitzen muss. Da $\epsilon > 0$ beliebig war, sehen wir, dass $x_0$ ein Häufungspunkt der Menge $A$ ist.
+\end{prf}
+
+\begin{ex}[Alternative Charakterisierung von Häufungspunkten]
+  Sei $A \subseteq \real$ und $x_0 \in \real$. Zeigen Sie, dass $x_0$ genau dann ein Häufungspunkt der Menge $A$ ist, wenn $\forall \epsilon > 0$ der Durchschnitt von $A$ mit der $\epsilon$-Umgebung $(x_0 - \epsilon, x_0 + \epsilon)$ unendlich viele Punkte enthält.
+\end{ex}
+
+\subsection{Intervallschachtelungsprinzip}
+
+Der durchschnitt von nicht-leereren, ineainder geschachtelten Intervallen $I_1 \subseteq I_2 \cdots $ mit $I_k \subseteq \real$, die kleiner werden, kann durchaus leer sein. Zum Beispiel gilt
+\[
+  \bigcap_{n=1}^{\infty} [n, \infty) = \varnothing,
+  \qquad
+  \bigcap_{n=1}^{\infty} \left(0, \frac{1}{n}\right) = \varnothing
+\]
+
+\begin{thm}[Intervallschachtelungsprinzip]
+  \label{thm: Intervallschachtelungsprinzip}
+  Sei $\forall n \in \nat$ ein (nicht-leeres, abgeschlossenes, beschränktes) Intervall
+  \[
+    I_n :\equiv [a_n, b_n]
+  \]
+
+  gegeben, so dass $\forall n,m \in \nat, m \leq n$ die Inklusion $I_m \subseteq I_n$ oder äquivalenterweise die Ungleichungen
+  \[
+  a_m \leq a_n \leq b_n \leq b_m
+  \]
+
+  gelten.
+  Dann ist der Durchschnitt
+  \[
+    \bigcap_{n=1}^{\infty}I_n :\equiv \left[ \sup\{ a_n \mid n \in \nat \}, \inf \{ b_n \mid n \in \nat \}\right]
+  \]
+
+  nicht-leer.
+\end{thm}\mce{77}
+\begin{prf}
+  Es gilt $\forall l,m,n \in \nat$, $l \leq m \leq n$:
+  \[
+    a_l \leq a_m \leq a_n \leq b_n \leq b_m \leq b_l.
+  \]
+
+  Dies zeigt, dass $b_m$ eine obere Schranke von $\{a_k \mid k \in \nat \}$ ist, woraus
+  \[
+    \widetilde{a} :\equiv \sup \{ a_k \mid k \in \nat \} \leq b_m \in \{ b_k \mid k \in \nat \}
+  \]
+
+  folgt. Somit ist auch $\{ b_k \mid k \in \nat \}$ von unten beschränkt. Da $m \in \nat$ beliebig ist, können wir die Gleichung oben für $\widetilde{b} :\equiv \inf \{ b_k \mid k \in \nat \}$ etwas umgestalten zu
+  \[
+  \widetilde{a} = \sup \{ a_k \mid k \in \nat \} \leq \inf \{ b_k \mid k \in \nat \} = \widetilde{b}.
+  \]
+
+  Für $x \in \real$ gilt nun die Abfolge von Äquivalenzen
+  \[
+  \begin{aligned}
+    x \in \bigcap_{n=1}^{\infty}[a_n, b_n]
+    & \iff \forall n \in \nat: a_n \leq x \leq b_n \\
+    & \iff (\forall n \in \nat: a_n \leq x) \wedge (\forall n \in \nat: x \leq b_n) \\
+    & \iff \widetilde{a} \leq x \wedge x \leq \widetilde{b},
+  \end{aligned}
+  \]
+
+  womit $\bigcap_{n=1}^{\infty}[a_n, b_n]=[\widetilde{a}, \widetilde{b}]=\left[ \sup\{ a_k \mid k \in \nat \}, \inf \{ b_k \mid k \in \nat \}\right]$ gilt, was zu beweisen war.
+\end{prf}
+
+\mce{79}
+\begin{ex}[Charakterisierung von Intervallen]
+  \phantom{.}
+  \begin{enumerate}
+    \item Eine Teilmenge $I \subseteq \real$ ist ein Intervall $\iff$ $\forall x,y \in I, z \in \real: (x \leq z \leq z) \implies z \in I$.
+    \item Daraus folgt, dass ein beliebiger Schnitt $\bigcap_{I \in \mathcal{I}} I$ von Intervallen $I \in \mathcal{I}$ ein Intervall ist.
+  \end{enumerate}
+\end{ex}
+
+
+\begin{ex}[Zusammenziehende Intervalle]
+  Sei zusätzlich wie in \ref{thm: Intervallschachtelungsprinzip} gegeben dass $\inf\{b_n-a_n \mid n \in \nat \} = 0$. Das heisst, dass die Intervalle immer kürzer werden. Dann besteht $\bigcap_{n=1}^{\infty}[a_n, b_n]$ aus nur einem Punkt.
+\end{ex}
+
