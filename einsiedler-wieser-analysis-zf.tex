@@ -1,4 +1,5 @@
-\documentclass[9pt]{report}
+% !TeX program = xelatex
+\documentclass[10pt]{report}
 \usepackage{listings}
 \usepackage{matlab-prettifier}
 \usepackage[fleqn]{amsmath}
@@ -11,15 +12,15 @@
 \usepackage{blindtext}
 \usepackage{geometry}
 \usepackage[explicit]{titlesec} %"big, medium, small, tiny".
-\usepackage{xfakebold}
+%\usepackage{xfakebold}
 \usepackage{amsthm}
-\usepackage{lmodern}
+%\usepackage{lmodern}
 \usepackage{ragged2e}
 %\usepackage[rmx]{kpfonts}
 %\usepackage{concmath}
 \usepackage{lipsum}
 \usepackage{xfrac}
-\usepackage{breqn}
+%\usepackage{breqn}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{xr-hyper}
 %\usepackage[fontsize=10pt]{scrextend}
@@ -30,10 +31,13 @@
 \usepackage{mathtools}
 \usepackage[shortcuts]{extdash}
 \usepackage[framemethod=tikz]{mdframed}
-\usepackage[T1]{fontenc}
-\usepackage{inconsolata}
+%\usepackage[T1]{fontenc}
+%\usepackage{inconsolata}
 \usepackage[most]{tcolorbox}
 
+\usepackage{fontspec}
+\usepackage{unicode-math}
+%\usepackage{xltxtra}
 
 %Hyphenation rules
 %--------------------------------------
@@ -59,35 +63,32 @@
 	top=15mm,
 }
 
-%\setcounter{secnumdepth}{0}
-
-%\renewenvironment{proof}{\underline{\ttfamily Proof:}}{\hfill $\Box$ \\}
-
-\titlespacing{\chapter}{0pt}{6pt}{3pt}
-\titlespacing{\section}{0pt}{25pt}{3pt}
-\titlespacing{\subsection}{0pt}{25pt}{3pt}
-\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
-
-\renewcommand*{\thechapter}{\arabic{chapter}}
-\renewcommand*{\thesection}{\arabic{chapter}\Alph{section}}
-\renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
-
-\titleformat{\chapter}[block]
-{\bfseries\relscale{1.3}\scshape\selectfont}{\thechapter { } { } #1}{0.5em}{\selectfont\large}
-
-
-\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
-
-\titleformat{\section}{\bfseries\relscale{1.1}\scshape\selectfont}{}{0em}{\thesection { } #1} %Large
-\titleformat{\subsection}{\bfseries\relscale{1.1}}{}{0em}{#1\  { } (\thesubsection)} %large
-\titleformat{\subsubsection}{\bfseries\relscale{1.1}}{}{0em}{#1\  { } (\thesubsubsection)}
-
 \linespread{1.1}
 
+% LaTeX
+%\setmainfont{Latin Modern Roman}
+%\setmathfont{Latin Modern Math}
+%
+
+\setmainfont{TeX Gyre Bonum} % nice, but without bold scshape
+\setmathfont{TeX Gyre Bonum Math}
+%
+%\setmainfont{TeX Gyre Pagella}
+%\setmathfont{TeX Gyre Pagella Math}
+%
+%\setmainfont{TeX Gyre Schola} %nicer than the one above
+%\setmathfont{TeX Gyre Schola Math}
+%
+%\setmainfont{TeX Gyre Termes} %meh, but much better than standard. Supports Bolds scshape!!
+%\setmathfont{TeX Gyre Termes Math}
+%
+%\setmainfont{DejaVu Serif}
+%\setmathfont{TeX Gyre DejaVu Math}
+
+%\setmainfont{FiraGO}
+%\setmathfont{FiraMath-Regular}
 
 \begin{document}
-
-
 
   \input{def}
 

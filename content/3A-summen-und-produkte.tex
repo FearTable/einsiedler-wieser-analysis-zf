@@ -1,1 +1,167 @@
 \section{Summen und Produkte}
+\begin{mydef-non}
+  Sei $n\in \nat$ und $a_1, \ddd, a_n \in \compl$ oder $a_1, \ddd, a_n$ Elemente eines Vektorraums $V$. Dann definieren wir das Produkt und die Summe als
+\[
+  \sum_{j=1}^{n} a_j
+  :\equiv
+  \begin{cases}
+    a_1=\sum_{j=1}^{1}a_j & \mytext{falls} n=1 \mytext{und} \\
+    \sum_{j=1}^{k+1}a_j = \left(\sum_{j=1}^{k} a_j \right) + a_{k+1} & \mytext{falls} n = k+1 > 1
+  \end{cases}
+\]
+
+\[
+\prod_{j=1}^{n} a_j
+:\equiv
+\begin{cases}
+  a_1=\prod_{j=1}^{1}a_j & \mytext{falls} n=1 \mytext{und} \\
+  \prod_{j=1}^{k+1}a_j = \left(\prod_{j=1}^{k} a_j \right) \cdot a_{k+1} & \mytext{falls} n = k+1 > 1
+\end{cases}
+\]
+\end{mydef-non}
+
+Formal gesehen ist $j \in \{1, \ddd, n\} \mapsto a_j \in V$ eine Funktion, die oft durch eine konkrete Formel gegeben sein wird.
+Der einfachste Fall einer Funktion $j \mapsto a_j$ ist der Fall der konstanten Funktion $a_j = z$ für ein $z \in \compl$ und $\forall j \in \{1, \ddd, n\}$. In diesem Fall ergibt sich die Summe zu
+\[
+\sum_{j=1}^{n}z = nz \quad \forall n \in
+ \nat.
+\]
+
+\begin{mydef-non}
+  Im Falle des Produkts erhalten wir aber die Definition der \qt{Potenzfunktion} für $z \in \compl$
+\[
+z^n :\equiv \prod_{j=1}^{n}z \quad \forall n \in \nat. $ Rekursiv gilt dann $ z^1 =z $ und $ z^{n+1} = z^n z
+\]\end{mydef-non}
+
+Man erweitert die Definition durch $z^0=1 \quad \forall z \in \compl$ und $z^{-n} = (z^n)^{-1} \quad \forall z \in \compl ^ \times, n \in \nat$.
+
+\begin{mydef-non}
+  Allgemeiner ist die Summe $\sum_{i=m}^{n} a_j$ für $m,n \in \nat$ rekursiv durch
+\[
+  \sum_{j=m}^{n}
+  :\equiv
+  \begin{cases}
+    0 & \mytext{falls} m>n, \\
+    a_m & \mytext{falls} m = n \mytext{und} \\
+    \left(\sum_{j=m}^{n-1}a_j\right) + a_n & \mytext{falls} m < n
+  \end{cases}
+\]
+
+definiert. Man bezeichnet die $a_j$'s als die \qt{Summanden} und $j$ als den \qt{Index} der Summe.
+
+Das Produkt $\prod_{i=m}^{n} a_j$ wird für $m,n \in \nat$ rekursiv durch
+\[
+\prod_{j=m}^{n}
+:\equiv
+\begin{cases}
+  0 & \mytext{falls} m>n, \\
+  a_m & \mytext{falls} m = n \mytext{und} \\
+  \left(\prod_{j=m}^{n-1}a_j\right) \cdot a_n & \mytext{falls} m < n
+\end{cases}
+\]
+
+Man bezeichnet die $a_j$'s als die \qt{Faktoren} und $j$ als den \qt{Index} des Produkts. Der Index $j$ hat ausserhalb der Summe und es Produkts keinerlei Bedeutung und ist sozusagen eine lokale Variable.
+\end{mydef-non}
+
+Es gilt
+\[
+  \sum_{j=m}^{n} a_j = \sum_{k=m}^{n} a_k = \sum_{l=m}^{n} a_l \mytext{sowie}
+  \prod_{j=m}^{n} a_j = \prod_{k=m}^{n} a_k = \prod_{l=m}^{n} a_l.
+\]
+
+\begin{ex}[Indexverschiebung]
+  Es gilt
+  \[
+  \sum_{j=m}^{n} a_j = \sum_{k=m-1}^{n-1}a_{k+1} = \sum_{l=m+1}^{n+1}a_{l-1}
+  \mytext{sowie}
+  \prod_{j=m}^{n} a_j = \prod_{k=m-1}^{n-1}a_{k+1} = \prod_{l=m+1}^{n+1}a_{l-1}
+  \]
+\end{ex}
+
+\begin{ex}[Potenzregeln]
+  Beweisen Sie
+  \begin{itemize}
+    \item $(zw)^m = z^m w^m$
+    \item $z^{m+n} = z^m z^n$ und
+    \item $(z^m)^n = z^{mn}$
+  \end{itemize}
+
+  zuerst $\forall z,w \in \compl$ und $m,n \in \nat$ mit vollständiger Induktion und dann $\forall z,w \in \compl^\times$ und $m,n \in \compl$.
+\end{ex}
+
+\subsection{Rechenregeln für die Summe}
+\begin{thm-non}
+  Für $c \in \real$ oder $c \in \compl, m,n \in \nat$, $m\neq n$ gilt
+\[
+\sum_{k=m}^{n}(a_k + b_k) = \sum_{k=m}^{n}a_k + \sum_{k=m}^{n} b_k
+\mytext{und}
+\sum_{k=m}^{n}(c a_k) = c \sum_{k=m}^{n}a_k,
+\]
+
+wobei $a_1, \ddd, a_n, b_1, \ddd, b_n$ in einem reellen oder kopmlexen Vekktorraum $V$ liegen.
+\end{thm-non}
+
+\begin{thm-non}[Teleskopsumme]
+  \[
+  \begin{aligned}
+    \sum_{k=m}^{n}(a_{k+1}-a_k) &= (a_{m+1}-a_m) + (a_{m+2}-a_{m+1}) + (a_{m+3} + a_{m+2}) \\
+    & \quad + \cdots + (a_{n-1}-a_{n-2})+(a_n-a_{n-1}) + (a_{n+1}-a_n) \\
+    & =a_{n+1} - a_m
+  \end{aligned}
+  \]
+\end{thm-non}
+\begin{prf}
+  Formaler argumentiert
+  \[
+  \begin{aligned}
+    \sum_{k=m}^{n}(a_{k+1} - a_k)
+    &= \sum_{k=m}^{n} a_{k+1} - \sum_{k=m}^{n} a_k = \sum_{j=m+1}^{n+1} a_j - \sum_{k=m}^{n} a_k \\
+    & = \left( a_{n+1} + \sum_{j=m+1}^{n} a_j \right) - \left(a_m + \sum_{k=m+1}^{n} a_k \right) = a_{n+1} - a_m
+  \end{aligned}
+  \]
+\end{prf}
+
+\begin{ex}[Abel-Summation] Seien $a_1, \ddd, a_n, b_1, \ddd, b_n \in \compl$. Wir setzten $A_k :\equiv \sum_{j=1}^{k}a_j$ für $k \in \nat$ mit $k \leq n$.
+Zeigen Sie die Abel-Summationsformel
+\[
+  \sum_{k=1}^{n}a_k b_k = A_n b_n + \sum_{k=1}^{n-1} A_k (b_k - b_{k+1}).
+\]
+
+Verwenden Sie dazu die Gleichung $a_k = A_k - A_{k-1}  \quad \forall k \in \nat$ mit $k \leq n$. Wenden Sie die Formel auf $\sum_{k=1}^{2n} \frac{(-1)^k}{k}$ an.
+\end{ex}
+
+\begin{imp-ex}[Verallgemeinerte Dreiecksungleichung]
+  Zeigen Sie, dass für alle Zahlen $a_1, \ddd, a_n \in \compl$ die Ungleichung
+  \[
+    \abs{\sum_{i=1}^{n}a_i} \leq \sum_{i=1}^{n} \abs{a_i}
+  \]
+  gilt.
+\end{imp-ex}
+
+\mce{5}
+\begin{thm}[Bernoulli'sche Ungleichung]
+  $\forall a \in \real, a \geq -1$ und $\forall n \in \nat_0$:
+  \[(1+a)^n \geq 1 + na. \]
+\end{thm}
+\begin{prf}
+  Per Induktion. Für $n=0$ haben wir $(1+a)^0 = 1 = 1 + 0a$. Sei nun also $n \geq 1$ und $a \geq 1$ und nehmen wir an die Gleichung stimmt für $n$. Dann haben wir für $n+1$:
+  \[
+  \begin{aligned}
+    (1+a)^{n+1}
+    &= (1+a)^n (1+a) \\
+    &\geq (1+na)(1+a) \quad \mytext{weil $a$ grösser oder gleich $-1$ ist} \\
+    &= 1+na+a+na^2 \\
+    &= 1+ (n+1)a + na^2 \\
+    &\geq 1 + (n+1)a
+  \end{aligned}
+  \]
+  \vspace*{-\baselineskip}
+\end{prf}
+
+\subsection{Rechenregeln für das Produkt}
+Für $m,n \in \nat, m\leq n$ und $a_m, \ddd, a_n, b_m, \ddd, b_n \in \compl$ gilt
+\[
+  \prod_{k=m}^{n} (a_k b_k) = \left(\prod_{k=m}^{n} a_k\right) \left(\prod_{k=m}^{n} b_k\right)
+  \mytext{und}
+  \prod_{k=m}^{n} (ca_k)=c^{n-m+1}\left(\prod_{k=m}^{n}a_k\right)
+\]

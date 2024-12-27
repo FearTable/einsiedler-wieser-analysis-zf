@@ -10,10 +10,10 @@
   \begin{equation}
   	a: \nat \to X \equiv (a_1, a_2, \ldots) \equiv (a_n)_{n\in\nat} \equiv(a_n)_{n=1}^{\infty} \equiv (a_n)_n.
   \end{equation}
-  
-	Die Menge der Folgen wird auch als $X^\nat$ bezeichnet.
-	
-	Eine Folge heisst \qt{konstant}, falls $\forall m,n \in \nat: a_n=a_m$ und \qt{schliesslich konstant}, falls 
+
+	Die Menge der Folgen wird auch als $X^{\nat}$ bezeichnet.
+
+	Eine Folge heisst \qt{konstant}, falls $\forall m,n \in \nat: a_n=a_m$ und \qt{schliesslich konstant}, falls
 	\begin{equation}
 		\exists M\in \nat: \; \forall m,n \in \nat \; : m,n \geq \nat \implies a_n = a_m
 	\end{equation}
@@ -22,17 +22,17 @@
 % Definition 5.21
 \begin{mydef}[Konvergenz]
 	Sei $(X,d)$ ein metrischer Raum und $(a_n)_n$ eine Folge in $X$.
-	
-	$(a_n)_n$ \qt{konvergiert} oder \qt{strebt} gegen einen Punkt $A\in X$, falls 
+
+	$(a_n)_n$ \qt{konvergiert} oder \qt{strebt} gegen einen Punkt $A\in X$, falls
 	\begin{equation}
 		\forall \epsilon > 0 \; \exists N \in \nat \; \forall n \geq N: (a_n, A) < \epsilon.
 	\end{equation}
-	
+
 	In diesem Fall nenne wir den Punkt $A$ den \qt{Grenzwert} der Folge und schreiben auch
 	\begin{equation}
 		\limninfty a_n = A
 	\end{equation}
-	
+
 	Weiter ist eine Folge in $X$ \qt{konvergent}, falls sie einen Grenzwert besitzt, und \qt{divegent}, falls nicht.
 \end{mydef}
 
@@ -47,21 +47,21 @@
 			\exists N_2 \in \nat: d(a_n, A_2) &< \epsilon \quad \forall n \geq N_2.
 		\end{aligned}
 	\end{equation}
-	
+
 	Daraus folgt
 	\begin{equation}
 		 N :\equiv \max \{ N_1, N_2 \} : d(a_n, A_1) < \epsilon \und d(a_n, A_2) < \epsilon \quad \forall n \geq N.
 	\end{equation}
-	
+
 	Nach der Dreiecksungleichung gilt
 	\begin{equation}
 		d(A_1, A_2) \leq d(A_1, a_N) + d(a_N, A_2) \; \boxed{<} \;  2\epsilon = d(A_1, A_2)
 	\end{equation}
-	
+
 	Was ein Widerspruch darstellt. Es kann nicht zwei Grenzwerte geben.
 \end{proof}
 
-\emph{Erinnerung:} Für einen metrischen Raum $(X,d)$ und 
+\emph{Erinnerung:} Für einen metrischen Raum $(X,d)$ und
 $\epsilon > 0$ ist der \qt{$\epsilon$-Ball} oder auch die \qt{$\epsilon$-Umgebung} um $x_0\in X$ durch
 \begin{equation}
 	B_{\epsilon} (x_0) :\equiv \{ x\in X \mid d(x, x_0) <\epsilon \}
@@ -78,12 +78,12 @@ gegeben. Eine allgemeine Umgebung wird wie folgt definiert.
 % Lemma 5.25
 \begin{thm}[Indexverschiebung]
 	$\forall l \in \nat_0$: $(a_n)_n$ ist konvergent $\iff$ $(a_{n+l})_n$ ist konvergent.
-	
+
 	In diesem Fall gilt
 	\begin{equation}
 		\limninfty a_n = \lim_{n \to \infty} a_{n+l}.
 	\end{equation}
-	
+
 	Dies gilt für jede Folge $(a_n)_n$ und $(a_{n+l})_n$ in einem metrischen Raum.
 \end{thm}
 

@@ -1,6 +1,11 @@
 % configurations for enumerates
 \setlist[enumerate]{itemsep=\itemsep,topsep=\itemsep}
-\setlist[enumerate,1]{label=\textbf{(\alph*)}}
+\setlist[enumerate,1]{label=\textbf{(\roman*)}}
+
+\setlength{\fboxsep}{.5\fboxsep}
+
+% A short function to set a counter. 'mce' stands for make counter equal.
+\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
 
 % only displays equation numbers if they are referenced
 \mathtoolsset{showonlyrefs,showmanualtags}
@@ -9,6 +14,8 @@
 
 % BEGIN custom geometry ************************************
 \setlength{\abovedisplayskip}{0.1em}
+%\setlength{\belowdisplayskip}{0.2em}
+%\setlength{\abovedisplayskip}{0em}
 \setlength{\belowdisplayskip}{0em}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
@@ -17,6 +24,8 @@
 \titlespacing{\chapter}{0pt}{0em}{0.4em}
 \titlespacing{\section}{0pt}{1.3em}{0.4em} %15pt, 3pt
 \titlespacing{\subsection}{0pt}{1em}{0.4em} %15pt, 3pt
+%\titlespacing{\subsubsection}{0pt}{6pt}{3pt}
+%\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 
 %For item, enumerate, description, lists
 \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
@@ -59,8 +68,12 @@
   %    \leavevmode\hbox to.77778em{\rule{.675em}{.675em}}}
 %\let\qedsymbol\closedbox
 
+%\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+
 \renewenvironment{prf}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
 \renewenvironment{proof}{{\textbf{\scshape \slshape Beweis:}}}{\hfill $\qedsymbol$}
+
+\newcommand{\prooffont}[1]{\textbf{\scshape \slshape #1}}
 
 % put the new mdframed style around the 'proof' and 'xmpl0 environment:
 %\surroundwithmdframed[style=proof]{xmpl}
@@ -74,8 +87,11 @@
 {}                            % Theorem head font {\ttfamily\fontseries{b}\selectfont}
 {\textbf{:\,}}       % Punctuation after theorem head
 {.2em}                        % Space after theorem head
-{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont{}\thmnote{\;({\itshape#3})}}}}
+{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ ({\itshape#3})}}}}
 % Theorem head spec (can be left empty, meaning ‘normal’)
+
+% If we ever want to use the same font as in theorem head:
+\newcommand{\theoremfont}[1]{\textbf{\scshape{#1}}}
 
 % Define 'thm', 'thm-non', 'mydef', 'mydef-non', 'example', 'example-non'
 % environments
@@ -105,18 +121,73 @@
 \newtheorem{xrcs}{Exercise}
 \newtheorem*{xrcs-non}{Exercise}
 
-% operators
-%\newcommand{\max}{\operatorname{max}}
-%\newcommand{\sup}{\operatorname{sup}}
-%\newcommand{\inf}{\operatorname{inf}}
+%\newtheoremstyle{indented-prf}
+%{.2em}        % space before
+%{0em}         % space after
+%{
+  % \setlength{\leftskip}{\mathindent}
+  % \setlength{\parindent}{0pt}
+  % \addtolength{\linewidth}{-\mathindent-3em}
+  % \setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}
+  % \setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt}
+  % \addtolength{\mathindent}{\mathindent}
+  %}
+%{0em}         % indent
+%{\bfseries}   % header font
+%{\textbf{:}}  % punctuation
+%{.3em}        % after theorem header
+%{{\textbf{\scshape{\thmname{#1}\thmnumber{ #2}}}{\normalfont \thmnote{ (#3)}}}}
 
+% define 'prf'-environment
+%\theoremstyle{indented-prf}
+%\newtheorem*{prf}{Proof}
+
+%\def\endprf{
+  %  {\setlength{\leftskip}{\mathindent}\setlength{\rightskip}{3em}\setlength{\parindent}{0pt}\addtolength{\linewidth}{-\mathindent-3em}\setlist[enumerate]{align=parleft,left=\mathindent..\mathindent+\mathindent-30pt}\setlist[description]{leftmargin=\mathindent,labelindent=\mathindent-6pt-27pt} \addtolength{\mathindent}{\mathindent} \hfill$\blacksquare$}
+  %}
+
+%\renewenvironment{proof}
+%{{\textbf{Proof:}}}
+%{\hfill $\Box$}
+% END custom proof and thereom environments ****************
+
+
+% BEGIN custom commands ************************************
+%\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+%\DeclarePairedDelimiter\innerproduct{\langle}{\rangle}
+
+
+% equality with text above
+\newcommand\eqwtxt[1]{
+  \;\overset{\text{\scriptsize#1}}{=}}
+
+
+% iff with text above
+\newcommand\iffwtxt[1]{
+  \;\overset{\text{\scriptsize#1}}{\iff}}
+
+% implication with text above
+\newcommand\implwtxt[1]{\;\overset{\text{\scriptsize#1}}{\implies}}
+
+% we need some space around dots
+\newcommand\ddd{{\, \ldots \,\,}}
+
+% such that, s. t.
+\newcommand\st{{such that }}
 
 % quotes
 \newcommand\qt[1]{\textit{``#1''}}
 
+\newcommand{\ip}[2]{\left \langle #1 \, {\displaystyle\mathlarger,} \, #2 \right \rangle}
+\newcommand{\innp}[2]{\left \langle #1, #2 \right \rangle}
+% Norm:
+\newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
+% Absolute value:
+\newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\gt}{>}
 \newcommand{\lt}{<}
 
+% May be obsolete since you can use '$' inside equation environment
 \newcommand{\mytext}[1]{\;\; \text{#1}\;\;}
 \newcommand\myand{\;\;\, \text{and}\;\;}
 \newcommand\myor{\;\;\, \text{or}\;\;}
@@ -148,8 +219,27 @@
 %LIMITS
 \newcommand\limninfty{\lim_{n \to \infty}}
 
+% BFEMPH
+\newcommand{\bfemph}[1]{{\textbf{\scshape #1}}}
+
+% natural numbers, integers, real numbers, complex numbers:
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\compl}{\mathbb{C}}
+\newcommand{\myF}{\mathbb{F}}
+
+% polynomial symbol:
+\newcommand{\polyn}{\mathcal{P}}
+
+% degree operator:
 \def\degree{{\operatorname{deg} \,}}
 
+% Matrix symbol M:
+\newcommand{\mmatrix}{\mathcal{M}}
+
+% use \span{..} for span(..)
 \newcommand{\myspan}[1]{\operatorname{span} (#1)}
 
 %Fast way to write v_1 ... v_n
@@ -159,143 +249,112 @@
 %Fast way to write v_1 ... v_m
 \newcommand{\oneTillM}[1]{#1_1, \dots, #1_m}
 \newcommand{\onetillm}[1]{#1_1, \dots, #1_m}
+\newcommand{\setOneTillM}{\{ 1, \ldots, m \}}
+\newcommand{\setonetillm}{\{ 1, \ldots, m \}}
 
 % fast way to write v_1 ... v_{#2}
 % usage \onetill{v}{k-1} yields v_1 \dots v_{k-1}
 \newcommand{\oneTill}[2]{#1_1, \dots, #1_{#2}}
 \newcommand{\onetill}[2]{#1_1, \dots, #1_{#2}}
 
-\newcommand{\kInOneTillM}{k \in \{1, \dots, m \}}
-\newcommand{\kinonetillm}{k \in \{1, \dots, m \}}
-\newcommand{\kInOneTillN}{k \in \{1, \dots, n \}}
-\newcommand{\kinonetilln}{k \in \{1, \dots, n \}}
-\newcommand{\kInOneTillP}{k \in \{1, \dots, p \}}
-\newcommand{\kinonetillp}{k \in \{1, \dots, p \}}
+\newcommand{\kInOneTillM}{k \in \{1, \dots, m \}} % k e {1...m}
+\newcommand{\kinonetillm}{k \in \{1, \dots, m \}} % k e {1...m}
+\newcommand{\kInOneTillN}{k \in \{1, \dots, n \}} % k e {1...n}
+\newcommand{\kinonetilln}{k \in \{1, \dots, n \}} % k e {1...n}
+\newcommand{\kInOneTillP}{k \in \{1, \dots, p \}} % k e {1...p}
+\newcommand{\kinonetillp}{k \in \{1, \dots, p \}} % k e {1...p}
 
-% abreviation for finite-dimensional vector space
-\newcommand{\findimvecpac}{finite-dimensional vector space }
-\newcommand{\findimvs}{finite-dimensional vector space }
-\newcommand{\fdvs}{finite-dimensional vector space }
+% abbreviation for finite-dimensional vector space
+\newcommand{\findimvecpac}{finite\-/dimensional vector space }
+\newcommand{\findimvs}{finite\-/dimensional vector space }
+\newcommand{\fdvs}{finite\-/dimensional vector space }
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\lid}{linearly independent}
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\ld}{linearly dependent }
 
-%abreviation for linearly independent
+% abbreviation for linearly independent
 \newcommand{\vs}{vector space }
 
-%abreviation for finite-dimensional
-\newcommand{\fd}{{finite-dimensional }}
+% abbreviation for finite-dimensional
+\newcommand{\fd}{finite\-/dimensional }
 
-%abreviation for linear map
+% abbreviation for linear map
 \newcommand{\lm}{{linear map }}
 
-%abbreaviation for L(V,W)
+% abbreaviation for L(V,W)
 \newcommand{\lvw}{{\mathcal{L}(V,W)}}
 
+% use \linmap for L or \lin{arg1}{arg2} for L(arg1, arg2)
 \newcommand{\linmap}{\mathcal{L}}
 \newcommand{\lin}[2]{{\mathcal{L}(#1, #2)}}
 
+% null and range
 \newcommand{\mynull}{\operatorname{null}}
-
 \newcommand{\myrange}{\operatorname{range}}
 
+% dimension
+\newcommand{\mydim}{\operatorname{dim}}
+
+% even and odd
 \newcommand{\even}{\operatorname{even}}
 \newcommand{\odd}{\operatorname{odd}}
 
-%\newcommand{\mmatrix}{\mathcal{M}}
+% dual space
+\newcommand{\dual}[1]{\displaystyle#1\mathlarger{'}}
 
-% Natural numbers, integers, real numbers, complex numbers:
-\newcommand{\rat}{\mathbb{Q}}
-\newcommand{\nat}{\mathbb{N}}
-\newcommand{\integer}{\mathbb{Z}}
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\compl}{\mathbb{C}}
-\newcommand{\myF}{\mathbb{F}}
+% legacy
 
-% Absolute value:
-\newcommand{\abs}[1]{\left|#1\right|}
+% \newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
+\def\myimpl{{\{black}{\implies}}
 
-% Polynomial symbol:
-\newcommand{\polyn}{\mathcal{P}}
+% octave or matlab
+\newcommand{\octave}[1]{
 
-% Matrix symbol:
-\newcommand{\mmatrix}{\mathcal{M}}
+\begin{center}
+  \begin{minipage}{\linewidth}
 
-%\newcommand{\bfemph}[1]{{\ttfamily\fontseries{b}\selectfont #1}}
-\newcommand{\bfemph}[1]{{\scshape\relscale{1.1} #1}}
+    \addtolength{\linewidth}{-7em}
+    \lstinputlisting[
+    aboveskip=0.7em,
+    frame=single,
+    numbers=left,
+    style=Matlab-bw,
+    basicstyle=\scriptsize\ttfamily]{octave/#1}
+    \addtolength{\linewidth}{+7em}
 
-%\newcommand{\basis}[2]{\overbrace{ \myspan{#1_1, \dots #1_{#2}}}^{\text{linearly independent}} }}
+  \end{minipage}
+\end{center}
 
-\def\myimpl{{ \{black}{\implies}}
+}
 
+% real part, imagenary part
+\newcommand{\realpart}{\operatorname{Re}}
+\newcommand{\impart}{\operatorname{Im}}
 
-\def\bold#1{{\bf #1}}
+% dashed box
+\newtcbox{\dashedbox}[1][]{
+math upper,
+baseline=0.4\baselineskip,
+equal height group=dashedbox,
+nobeforeafter,
+colback=white,
+boxrule=0pt,
+enhanced jigsaw,
+boxsep=0pt,
+top=2pt,
+bottom=2pt,
+left=2pt,
+right=2pt,
+borderline horizontal={0.5pt}{0pt}{dashed},
+borderline vertical={0.5pt}{0pt}{dashed},
+drop lifted shadow,
+#1
+}
 
-%\newtheoremstyle{mytheoremstyle} % name
-%%{\topsep}                    % Space above
-%{0.8em}                    % Space above
-%{0em}                        % Space below
-%{}                           % Body font
-%{0em}                           % Indent amount
-%%{\ttfamily\fontseries{b}\selectfont}                   % Theorem head font
-%{\bfseries\scshape}                   % Theorem head font
-%{:\newline}                          % Punctuation after theorem head
-%{.3em}                       % Space after theorem head
-%{}  					     % Theorem head spec (can be left empty, meaning ‘normal’)
-%
-%\theoremstyle{mytheoremstyle}
-%\newtheorem{thm}{Theorem}[chapter]
-%
-%\theoremstyle{mytheoremstyle}
-%\newtheorem{mydef}[thm]{Definition}
-%\newtheorem*{mydef-non}{Definition}
-%
-%\theoremstyle{mytheoremstyle}
-%\newtheorem{example}[thm]{Example}
-%
-%
-%
-%\newtheoremstyle{indented}
-%{3pt}% space before
-%{3pt}% space after
-%{\addtolength{\@totalleftmargin}{3.5em}
-%  \addtolength{\linewidth}{-3.5em}
-%  \parshape 1 3.5em \linewidth}% body font
-%{}% indent
-%{\bfseries}% header font
-%{.}% punctuation
-%{.5em}% after theorem header
-%{}% header specification (empty for default)
-%\makeatother
-%
-%\renewenvironment{proof}
-%{
-%	{
-%		\bfseries
-%		\scshape
-%		\itshape
-%		\selectfont
-%		Beweis:}
-%}
-%{
-%	\hfill $\Box$ \\
-%}
-
-% make counter equal
-\newcommand{\mce}[1]{\setcounter{thm}{#1-1}}
-
-\setlength{\abovedisplayskip}{4pt}
-\setlength{\belowdisplayskip}{3pt}
-
-\setlength{\abovedisplayskip}{0.1em}
-\setlength{\belowdisplayskip}{0em}
-\setlength{\abovedisplayshortskip}{0pt}
-\setlength{\belowdisplayshortskip}{0pt}
-\setlength{\jot}{0pt}
-
+% END custom comands ***************************************
 
 % BEGIN custom chapter format ******************************
 \renewcommand*{\thechapter}{\arabic{chapter}}
@@ -303,8 +362,7 @@
 \renewcommand*{\thesubsection}{\arabic{chapter}\Alph{section}\arabic{subsection}}
 
 \titleformat{\chapter}[block]
-{\bfseries\scshape}{\relscale{1.1}#1 {\footnotesize (Kapitel \thechapter)}}{0.5em}{\large}
-\titleformat{\section}{\bfseries\scshape}{}{0em}{{\relscale{1.1}#1} {\footnotesize(Abschnitt  \thesection)}} %Large
+{\bfseries\scshape}{\underline{\relscale{1.1}#1 {\footnotesize (Kapitel \thechapter)}}}{0.5em}{\large}
+\titleformat{\section}{\bfseries\scshape}{}{0em}{\underline{{\relscale{1.1}#1} {\footnotesize(Abschnitt  \thesection)}}} %Large
 \titleformat{\subsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Unter-Abschnitt \thesubsection)}} %large
-\titleformat{\subsubsection}{\relscale{1.1}\bfseries\scshape}{}{0em}{#1 {\footnotesize (Unter-Unter-Abschnitt \thesubsection)}} %large
 % END custom chapter format ********************************

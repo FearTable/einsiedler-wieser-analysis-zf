@@ -1,19 +1,20 @@
-\section{Die reelen Zahlen}
-
-\subsection{Die Axiome der reele Zahlen}
+\section{Die Axiome der reele Zahlen}
 
 \begin{mydef}[reelle Zahlen, $\real$]
   Die Menge der reellen Zahlen $\real$ besitzt eine \qt{Addition}
   \[
     +: \real \times \real \to \real, (x,y) \mapsto x+y,
   \]
-  und eine \qt{Multiplikation}, und eine Relation $\leq$ auf $\real$, die wir \qt{kleiner gleich} nennen.
+
+  und eine \qt{Multiplikation},
   \[
     \cdot: \real \times \real \to \real, (x,y) \mapsto x\cdot y.
   \]
+
+  und eine Relation $\leq$ auf $\real$, die wir \qt{kleiner gleich} nennen.
 \end{mydef}
 
-\subsubsection{Körperaxiome}
+\subsection{Körperaxiome}
 
 Die Addition erfüllt folgende Eigenschaften
 \begin{enumerate}[label=\textbf{(\alph*)}]
@@ -22,11 +23,11 @@ Die Addition erfüllt folgende Eigenschaften
   \item Assoziativgesetz: $\forall x,y,z \in \real: (x+y)+z = x+(y+z)$
   \item Kommutativgesetz: $\forall x,y \in \real: x+y = y + x$
 \end{enumerate}
-$\real$ wird gemeinsam mit der Verknüpfung $+: \real \times \real \to \real$ auch \emph{kommutative} oder \emph{abelsche Gruppe} genannt.
+$\real$ wird gemeinsam mit der Verknüpfung $+: \real \times \real \to \real$ auch \qt{kommutative} oder \qt{abelsche Gruppe} genannt.
 
-\emph{Erste Folgerungen.}
+\emph{Erste Folgerungen für die Addition.}
 \begin{enumerate}
-  \item Das Nullelement ist eindeutig. $0_1 = 0_1 + 0_2 = 0_2$.
+  \item Das Nullelement ist eindeutig. Denn gäbe es zwei unterschiedliche $0_1$ und $0_2$, dann folgt daraus $0_1 = 0_1 + 0_2 = 0_2$.
   \item Das Negative $-x$ ist für jedes $x \in \real$ eindeutig bestimmt. Falls für $x,y,z$ die gleichung $0=x+y=x+z$ gilt, dann gilt $y=y+0=y+(x+z)=(y+x)+z=(x+y)+z=0+z=z.$
   \item Es gilt $-(-x) = x \quad \forall x \in \real$. Denn das additive Inverse ist eindeutig und weil $(-x) + x = 0$ gilt, gilt auch $-(-x) = x$.
   \item \qt{Additives Kürzen}: $x + y = x + z \implies y=z \quad \forall x,y,z \in \real$.
@@ -59,7 +60,7 @@ Die Multiplikation erfüllt folgende Eigenschaften
   Distributivgesetz: $(x+y)\cdot z = (x \cdot z) + (y \cdot z) \quad \forall x,y,z \in \real$
 \end{enumerate}
 
-\emph{Folgerungen}
+\emph{Folgerungen für die Multiplikation}
 \begin{enumerate}
   \item $0 = 0x = x0 \quad \forall x \in \real$
   \item $(-1)x = -x \quad \forall x \in \real$, weil $x + (-1) x = 1x + (-1)x = (1+(-1))x = 0x = 0$. Man sieht, dass $(-1)x$ das additive Inverse von $x$ ist. Desshalb gilt $(-1)x = -x$.
@@ -87,7 +88,7 @@ Die Multiplikation erfüllt folgende Eigenschaften
 Man verwendet die Schreibweise des \qt{Quotienten} $frac{x}{y}=xy^{-1}$ für alle \qt{Zähler} $x \in \real$ under \qt{Nenner} $y \in \real$. Die Inverse $\frac{1}{y}=y^{-1}$ von $y \in \real-\{0\}$ nennen wir den \qt{reziproken Wert} oder den \qt{Kehrwert} von $y$.
 
 \begin{imp-ex} [Rechenregel für Quotienten]
-  \phantom{.} \\
+  \phantom{.}
   \begin{enumerate}
     \item $\tfrac{x}{y}=\tfrac{z}{w} \iff xw = yz \quad \forall x,z \in \real \myand \forall y,w \in \real^{\times}$.
     \item $\tfrac{x}{y} \cdot \tfrac{z}{w} = \tfrac{xz}{yw} \quad \forall x,z \in \real \myand \forall y,w \in \real^{\times}$
@@ -106,7 +107,7 @@ Man verwendet die Schreibweise des \qt{Quotienten} $frac{x}{y}=xy^{-1}$ für all
 
 \end{imp-ex}
 
-\subsubsection{Angeordnete Körper}
+\subsection{Angeordnete Körper}
 \textbf{Axiome (Anordnung).} Die Relation $\leq$ auf $\real$ erfüllt die folgenden vier Axiome. $\forall x,y,z \in \real$:
 \begin{enumerate}
   \item Reflexivität: $x \leq x$.
@@ -144,7 +145,7 @@ Die Axiome (a) - (c) sind die Axiome einer \qt{(partiellen) Ordnung} und zusamme
   \item $xy \leq xz$ $\implies$ $y \leq z$. (Man darf $x$ streichen)
 \end{enumerate}
 
-\subsubsection{Das Vollständigkeitsaxiom}
+\subsection{Das Vollständigkeitsaxiom}
 
 \[
   \begin{aligned}
@@ -153,7 +154,7 @@ Die Axiome (a) - (c) sind die Axiome einer \qt{(partiellen) Ordnung} und zusamme
   \end{aligned}
 \]
 
-\subsubsection{Eine erste Anwendung der Vollständigkeit}
+\subsection{Eine erste Anwendung der Vollständigkeit}
 
 \begin{imp-ex}[Existenz der Wurzelfunktion]
   \phantom{.}\\

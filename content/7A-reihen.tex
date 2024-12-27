@@ -1,19 +1,21 @@
 \section{Reihen}
 
 \begin{mydef}
-	Sei $(a_k)_k \in \nat \times \compl$. Man nennt $a_k$ das \qt{$k$-te Glied} oder den \qt{$k$-ten Summanden} der \qt{(unendlichen) Reihe} 
+	Sei $(a_k)_k \in \nat \times \compl$. Man nennt $a_k$ das \qt{$k$-te Glied} oder den \qt{$k$-ten Summanden} der \qt{(unendlichen) Reihe}
   \begin{equation}
-		\sum_{k=1}^{\infty} a_k. $ Man nennt $
+		\sum_{k=1}^{\infty} a_k.
 	\end{equation}
+
+  Man nennt
 	\begin{equation}
-		s_n=\sum_{k=1}^{n} a_k 
+		s_n=\sum_{k=1}^{n} a_k
 	\end{equation}
-	
+
 	die \qt{$n$-te Partialsumme} der obigen Reihe. Wir nennen die Reihe \qt{konvergent}, falls der Grenzwert
 	\begin{equation}
 		\sum_{k=1}^\infty a_k :\equiv \lim_{n \to \infty} \sum_{k=1}^{n} a_k = \lim_{n \to \infty} s_n \in \compl
 	\end{equation}
-	
+
 	existiert. Wir nennen dies den \qt{Wert der Reihe}. Ansonsten nennen wir die Reihe \qt{divergent}.
 \end{mydef}
 
@@ -32,9 +34,9 @@
 \setcounter{thm}{7}
 \begin{thm}[Indexverschiebung für Reihen]
 	Sei $\sumkinfty a_k$ eine Reihe. Es gilt $\forall M \in \nat$:
-	
+
 	Die Reihe $\sum_{k=M}^{\infty} a_k = \sumlinfty a_{l+M-1}$ ist konvergent $\iff$ die Reihe $\sumkinfty a_k$ ist konvergent.
-	
+
 	In diesem Fall gilt
 	\begin{equation}
 		\sumkinfty a_k = \sum_{k=1}^{M-1} a_k + \sum_{k=M}^{\infty} a_k.
@@ -43,7 +45,7 @@
 
 \begin{thm}[Zusammenfassen von benachbarten Gliedern]
 	Sei $\sumninfty a_n$ eine konvergente Reihe und $(n_k)_k \in \nat \times \nat$ eine streng monoton wachsende Folge (natürlicher Zahlen).
-	Sei 
+	Sei
 	\begin{equation}
 		\begin{aligned}
 			A_1 &: \equiv a_1 + \cdots + a_{n_1} \\
@@ -62,37 +64,37 @@
 	Für eine Reihe $\sumkinfty a_k$ mit $a_k \geq 0$ bilden die Partialsummen $s_n=\sumkn a_k$ eine monoton wachsende Folge. Falls diese Folge $(s_n)_n$ beschränkt ist, dann Konvergiert die Reihe. Ansonsten gilt
 	\begin{equation}
 		\sumkinfty a_k = \limninfty s_n = \infty.
-	\end{equation}	
+	\end{equation}
 \end{thm}
 
 \begin{thm}[Vergleichssatz]
-	
-	Seien $\sumkinfty a_k$ und $\sumkinfty b_k$ zwei Reihen mit der Eigenschaft 
+
+	Seien $\sumkinfty a_k$ und $\sumkinfty b_k$ zwei Reihen mit der Eigenschaft
 	\begin{equation}
 		0\leq a_k \leq b_k. $ Dann gilt $
 	\end{equation}
 	\begin{equation}
-	 	\underbrace{\sumkinfty a_k}_{\text{Minorante von $\sumkinfty b_k$}}  \leq \underbrace{\sumkinfty b_k}_{\text{Majorante von $\sumkinfty a_k$}} 
-	\end{equation} 
-	
+	 	\underbrace{\sumkinfty a_k}_{\text{Minorante von $\sumkinfty b_k$}}  \leq \underbrace{\sumkinfty b_k}_{\text{Majorante von $\sumkinfty a_k$}}
+	\end{equation}
+
 	und insbesondere gelten die Implikationen
 	\begin{equation}
 		\begin{aligned}
 			&\sumkinfty b_k
-			&\text{konvergent} 
-			&\implies 
-			&\sumkinfty a_k 
-			&\mytext{konvergent} 
+			&\text{konvergent}
+			&\implies
+			&\sumkinfty a_k
+			&\mytext{konvergent}
 			&\text{(Majorantenkriterium)} \\
 			&\sumkinfty a_k
-			&\text{divergent} 
-			&\implies 
-			&\sumkinfty b_k 
-			&\mytext{divergent} 
+			&\text{divergent}
+			&\implies
+			&\sumkinfty b_k
+			&\mytext{divergent}
 			&\text{(Minorantenkriterium)}
 		\end{aligned}
 	\end{equation}
-	
+
 	Diese beiden Implikationen treffen auch dann zu, wenn $0\leq a_n \leq b_n$ nur für alle hinreichend grossen $n \in \nat$ gilt.
 \end{thm}
 
@@ -115,7 +117,7 @@
 	\begin{equation}
 		\implies \sumknplone 2^{k-1} a_{2^l} \leq \sum_{l=2}^{2^{n+1}} a_l \leq \sumkzeroton 2^{k}a_{2^k}
 	\end{equation}
-	
+
 	Der Rest folgt durch \autoref{thm:verdichtung} und durch den Grenzübergang $n \to \infty$.
 \end{proof}
 
@@ -128,7 +130,7 @@ Die Reihe $\sumninfty a_n$ ist \qt{bedingt konvergent}, falls sie konvergiert, a
 
 \setcounter{thm}{20}
 \begin{thm}[Riemannscher Umordnungssatz]
-	Sei $\sumninfty a_n$ eine bedingt konvergente Reihe mit reelen Gliedern. Dann gibt es zu jedem $A\in \real$ eine bijektive Funktion (eine Umordnung) $\varphi: \nat \to \nat$, so dass die Reihe $\sumninfty a_{\varphi(n)}$ bedingt konvergiert und $\sumninfty a_{\varphi(n)} = A$ ist. Weiters gibt es eine Umordnung der Reihe, die divergiert.	
+	Sei $\sumninfty a_n$ eine bedingt konvergente Reihe mit reelen Gliedern. Dann gibt es zu jedem $A\in \real$ eine bijektive Funktion (eine Umordnung) $\varphi: \nat \to \nat$, so dass die Reihe $\sumninfty a_{\varphi(n)}$ bedingt konvergiert und $\sumninfty a_{\varphi(n)} = A$ ist. Weiters gibt es eine Umordnung der Reihe, die divergiert.
 \end{thm}
 
 
@@ -142,12 +144,12 @@ Für eine Folge $(a_n)_n$ positiver Zahlen bezeichnen wir die Reihe $\sumkinfty 
 		\label{eq: fehlerabschaetzung}
 		\left | \sumkonetilll (-1)^{k+1} a_k - \sumkinfty (-1)^{k+1} a_k \right | \leq a_{l+1}. \fueralle l\in \nat
 	\end{equation}
-	
+
 	Weiters ist
 	\begin{equation}
 		\sum_{k=1}^{2n} (-1)^{k+1} a_k \leq \sum_{k=1}^{\infty} (-1)^{k+1} a_k \leq \sum_{k=1}^{2n-1} (-1)^{k+1}a_k
 	\end{equation}
-	
+
 	Abschätzungen des Typs (\autoref{eq: fehlerabschaetzung}) werden meist auch Fehlerabschätzungen oder Fehlerschranken bezeichnet. (Intuitiv: Approximation durch Summe bis zu einem gewissen Glied anstatt der Wert der Reihe)
 \end{thm}
 
@@ -160,7 +162,7 @@ Für eine Folge $(a_n)_n$ positiver Zahlen bezeichnen wir die Reihe $\sumkinfty 
 	\end{equation}
 \end{thm}
 \begin{proof}
-	Dies folgt aus dem Cauchy-Kriterium für Folgen angewendet auf die Folge der Partialsummen $s_n=\sumkinfty a_k$, da 
+	Dies folgt aus dem Cauchy-Kriterium für Folgen angewendet auf die Folge der Partialsummen $s_n=\sumkinfty a_k$, da
 	\begin{equation}
 				s_n - s_{m-1} = \sum_{k=1}^n a_k - \sum_{k=1}^{m-1} a_k = \sum_{k=m}^n a_k \fuer n \geq m
 	\end{equation}
